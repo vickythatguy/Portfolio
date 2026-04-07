@@ -1,289 +1,326 @@
-<!DOCTYPE HTML>
-<!--
-	Read Only by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
-	<head>
-		<title>Vignesh Subramaniam - Data Analyst Portfolio</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<link rel="stylesheet" href="assets/css/fontawesome-all.min.css" />
-	</head>
-	<body class="is-preload">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vignesh Subramaniam</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=IBM+Plex+Mono:wght@300;400;500&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg:     #F8F5EF;
+      --text:   #1A1714;
+      --muted:  #7A7168;
+      --accent: #8B5E3C;
+      --line:   #D8D2C8;
+      --serif:  'Cormorant Garamond', Georgia, serif;
+      --mono:   'IBM Plex Mono', monospace;
+      --body:   'Lora', Georgia, serif;
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--text); font-family: var(--body); font-size: 16px; line-height: 1.7; }
 
-		<!-- Header -->
-			<section id="header">
-				<header>
-					<span class="image avatar">
-						<picture>
-							<source srcset="images/avatar.png" type="image/png" />
-							<img src="images/avatar.png" alt="Vignesh Subramaniam headshot" />
-						</picture>
-					</span>
-					<h1 id="logo"><a href="#">Vignesh Subramaniam</a></h1>
-					<p>Data Analyst &amp; BI Developer<br />
-					SQL &bull; Python &bull; Power BI &bull; Data storytelling</p>
-				</header>
-				<nav id="nav">
-					<ul>
-						<li><a href="#one" class="active">Profile Summary</a></li>
-						<li><a href="#two">Education</a></li>
-						<li><a href="#three">Experience</a></li>
-						<li><a href="#four">Projects</a></li>
-						<li><a href="#five">Skills</a></li>
-						<li><a href="#six">Contact</a></li>
-					</ul>
-				</nav>
-				<footer>
-					<ul class="icons">
-						<li><a href="https://linkedin.com/in/vignesh2912" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
-						<li><a href="https://github.com/vickythatguy" class="icon brands fa-github"><span class="label">Github</span></a></li>
-						<li><a href="assets/Vignesh_Subramaniam_Resume.pdf" class="icon solid fa-file-pdf" download><span class="label">Resume</span></a></li>
-						<li><a href="mailto:vignesh222022@gmail.com" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
-					</ul>
-				</footer>
-			</section>
+    /* NAV */
+    nav { display: flex; align-items: center; justify-content: space-between; padding: 1.75rem 4rem; border-bottom: 1px solid var(--line); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+    .nav-name { font-family: var(--serif); font-size: 1.1rem; font-weight: 600; color: var(--text); text-decoration: none; }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { font-family: var(--mono); font-size: 0.65rem; color: var(--muted); text-decoration: none; letter-spacing: 0.07em; transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--text); }
 
-		<!-- Wrapper -->
-			<div id="wrapper">
+    /* CONTAINER */
+    .wrap { max-width: 840px; margin: 0 auto; padding: 0 4rem; }
 
-				<!-- Main -->
-					<div id="main">
+    /* HERO */
+    .hero { padding: 5rem 0 0; }
+    .hero-grid { display: grid; grid-template-columns: 1fr 280px; gap: 4rem; align-items: start; }
+    .hero-text h1 { font-family: var(--serif); font-size: clamp(3rem, 6vw, 5.5rem); font-weight: 300; line-height: 1.0; letter-spacing: -0.01em; margin-bottom: 1.25rem; }
+    .hero-text h1 em { font-style: italic; }
+    .hero-role { font-family: var(--mono); font-size: 0.65rem; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 2rem; }
+    .hero-intro { font-size: 1rem; color: var(--text); line-height: 1.85; margin-bottom: 2rem; }
+    .hero-intro p + p { margin-top: 0.85rem; }
+    .social-row { display: flex; gap: 1.5rem; flex-wrap: wrap; margin-top: 1.75rem; }
+    .social-row a { font-family: var(--mono); font-size: 0.63rem; color: var(--muted); text-decoration: none; letter-spacing: 0.08em; border-bottom: 1px solid var(--line); padding-bottom: 0.1rem; transition: color 0.2s, border-color 0.2s; }
+    .social-row a:hover { color: var(--accent); border-color: var(--accent); }
+    .hero-photo { width: 100%; aspect-ratio: 3/4; object-fit: cover; object-position: top center; display: block; filter: grayscale(5%); }
 
-						<!-- One - Profile Summary -->
-							<section id="one">
-								<div class="image main" data-position="center">
-									<img src="images/banner-hero.png" alt="Analytics-themed banner" />
-								</div>
-								<div class="container">
-									<ul class="actions">
-										<li><a href="assets/Vignesh_Subramaniam_Resume.pdf" class="button primary icon solid fa-file-pdf" download>Download Resume</a></li>
-										<li><a href="https://linkedin.com/in/vignesh2912" class="button icon brands fa-linkedin">LinkedIn</a></li>
-										<li><a href="https://github.com/vickythatguy" class="button icon brands fa-github">GitHub</a></li>
-									</ul>
-<header class="major">
-	<h2>Hi, I’m Vignesh 👋</h2>
-	<p>Data Analyst | Business Analytics & AI | Turning Data into Decisions</p>
-</header>
+    /* HR */
+    hr { border: none; border-top: 1px solid var(--line); margin: 4rem 0; }
 
-<p>
-I’m a data analyst with a Master’s degree in <strong>Business Analytics & AI</strong> from Ontario Tech University and over <strong>3 years of hands-on experience</strong> using data to solve real business problems across <strong>insurance, retail, and financial services</strong>.
-</p>
+    /* SECTION */
+    .sec { padding-bottom: 5rem; }
+    .sec-title { font-family: var(--serif); font-size: 1.7rem; font-weight: 600; color: var(--text); margin-bottom: 2rem; letter-spacing: -0.01em; }
+    .sec-title em { font-style: italic; font-weight: 300; }
 
-<p>
-In my work, I focus on transforming complex, messy datasets into <strong>clear insights, automated reports, and scalable dashboards</strong> using <strong>SQL, Python, Power BI, and Excel</strong>. I’ve helped teams reduce manual reporting by <strong>35%</strong>, improve data accuracy by <strong>30%</strong>, and make faster, more confident decisions through analytics.
-</p>
+    /* THINGS LIST */
+    .things { list-style: none; }
+    .thing { display: grid; grid-template-columns: 150px 1fr; gap: 2rem; padding: 1.25rem 0; border-bottom: 1px solid var(--line); align-items: baseline; }
+    .thing:first-child { border-top: 1px solid var(--line); }
+    .thing-dt { font-family: var(--mono); font-size: 0.6rem; color: var(--muted); letter-spacing: 0.07em; text-transform: uppercase; padding-top: 0.1rem; }
+    .thing-bd strong { font-family: var(--body); font-size: 0.95rem; font-weight: 500; display: block; margin-bottom: 0.2rem; }
+    .thing-bd span { font-size: 0.875rem; color: var(--muted); line-height: 1.65; }
 
-<p>
-This portfolio is a collection of the projects, tools, and problem-solving approaches I’ve used to bridge <strong>data, business, and operations</strong>. Whether it’s customer segmentation, insurance analytics, or operational performance, I enjoy building solutions that are practical, explainable, and impactful.
-</p>
+    /* PROJECTS */
+    .projs { list-style: none; }
+    .proj { display: grid; grid-template-columns: 1fr auto; gap: 2rem; padding: 1.25rem 0; border-bottom: 1px solid var(--line); align-items: start; }
+    .proj:first-child { border-top: 1px solid var(--line); }
+    .proj-name { font-size: 0.95rem; font-weight: 500; margin-bottom: 0.25rem; }
+    .proj-desc { font-size: 0.855rem; color: var(--muted); line-height: 1.65; margin-bottom: 0.5rem; }
+    .proj-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+    .ptag { font-family: var(--mono); font-size: 0.55rem; color: var(--accent); letter-spacing: 0.05em; }
+    .proj-a { font-family: var(--mono); font-size: 0.6rem; color: var(--muted); text-decoration: none; letter-spacing: 0.05em; white-space: nowrap; border-bottom: 1px solid var(--line); padding-bottom: 0.1rem; transition: color 0.2s, border-color 0.2s; }
+    .proj-a:hover { color: var(--accent); border-color: var(--accent); }
 
-									<p>
-									Outside of work, I’ve been recognized on the <strong>Dean’s List (GPA: 4.15)</strong> and served as <strong>VP of Google Data Visualization</strong>, where I led <strong>25+ analytics competitions</strong> across Canada. I’m always curious, always learning, and always excited to build with data.
-									</p>
+    /* SKILLS */
+    .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem 4rem; }
+    .sk-group h4 { font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.75rem; border-bottom: 1px solid var(--line); padding-bottom: 0.5rem; }
+    .sk-group ul { list-style: none; display: flex; flex-direction: column; gap: 0.4rem; }
+    .sk-group li { font-size: 0.875rem; color: var(--text); }
+
+    /* CONTACT */
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+    .contact-blurb { font-family: var(--serif); font-size: 1.5rem; font-style: italic; font-weight: 300; line-height: 1.45; color: var(--text); }
+    .clinks { list-style: none; display: flex; flex-direction: column; gap: 0; }
+    .clink-item { padding: 0.85rem 0; border-bottom: 1px solid var(--line); }
+    .clink-item:first-child { border-top: 1px solid var(--line); }
+    .cl-lbl { font-family: var(--mono); font-size: 0.57rem; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.2rem; }
+    .cl-val { font-size: 0.9rem; color: var(--text); text-decoration: none; transition: color 0.2s; }
+    .cl-val:hover { color: var(--accent); }
+
+    /* FOOTER */
+    footer { padding: 2rem 4rem; border-top: 1px solid var(--line); display: flex; justify-content: space-between; align-items: center; }
+    .ft { font-family: var(--mono); font-size: 0.58rem; color: var(--muted); letter-spacing: 0.05em; }
+    .ft a { color: var(--muted); text-decoration: none; transition: color 0.2s; }
+    .ft a:hover { color: var(--accent); }
+
+    /* ANIMATIONS */
+    @keyframes up { from { opacity:0; transform:translateY(12px); } to { opacity:1; transform:translateY(0); } }
+    .hero-grid { animation: up 0.65s ease 0.1s both; }
+    .reveal { opacity:0; transform:translateY(10px); transition: opacity 0.5s ease, transform 0.5s ease; }
+    .reveal.visible { opacity:1; transform:translateY(0); }
+
+    /* RESPONSIVE */
+    @media(max-width:760px){
+      nav { padding:1.25rem 1.5rem; }
+      .wrap { padding:0 1.5rem; }
+      .hero-grid { grid-template-columns:1fr; gap:2rem; }
+      .hero-photo { max-width:200px; order:-1; }
+      .hero-text h1 { font-size:3rem; }
+      .thing { grid-template-columns:1fr; gap:0.2rem; }
+      .contact-grid { grid-template-columns:1fr; gap:2rem; }
+      .skills-grid { grid-template-columns:1fr; }
+      footer { flex-direction:column; gap:0.5rem; padding:1.5rem; text-align:center; }
+    }
+    @media(max-width:500px){ .nav-links { display:none; } }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-name">Vignesh Subramaniam</a>
+  <ul class="nav-links">
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="cv.html">CV</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="thedatabehind.html">The Data Behind It</a></li>
+  </ul>
+</nav>
+
+<div class="wrap">
+  <section class="hero">
+    <div class="hero-grid">
+      <div class="hero-text">
+        <div class="hero-role">Data Analyst &nbsp;·&nbsp; Business Intelligence &nbsp;·&nbsp; Toronto, ON</div>
+        <h1>Vignesh<br><em>Subramaniam</em></h1>
+        <div class="hero-intro">
+          <p>I'm a data analyst with a background in engineering and three years solving real problems in insurance, retail, and financial services. I use SQL, Power BI, and Python — but the interesting part is always the question, not the tool.</p>
+          <p>Master of Business Analytics &amp; AI, Ontario Tech University — GPA 4.15, Dean's List. Currently in Toronto and open to new opportunities.</p>
+        </div>
+        <div class="social-row">
+          <a href="https://linkedin.com/in/vignesh2912" target="_blank">LinkedIn</a>
+          <a href="https://github.com/vickythatguy" target="_blank">GitHub</a>
+          <a href="cv.html">CV</a>
+          <a href="mailto:vignesh222022@gmail.com">Email</a>
+          <a href="thedatabehind.html">The Data Behind It</a>
+        </div>
+      </div>
+      <img src="images/vignesh-casual.jpg" alt="Vignesh Subramaniam" class="hero-photo" />
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- THINGS THAT HAPPENED -->
+  <section class="sec reveal">
+    <h2 class="sec-title">Things that <em>happened</em></h2>
+    <ul class="things">
+      <li class="thing">
+        <div class="thing-dt">2025 · Dean's List</div>
+        <div class="thing-bd">
+          <strong>Graduated with a 4.15 GPA — Master of Business Analytics &amp; AI</strong>
+          <span>Ontario Tech University. While working part-time and job searching simultaneously. The plan kept changing. The GPA didn't.</span>
+        </div>
+      </li>
+      <li class="thing">
+        <div class="thing-dt">2024–25 · VP</div>
+        <div class="thing-bd">
+          <strong>Led 25+ data analytics competitions across Canada</strong>
+          <span>VP of Google Data Visualization Club at Ontario Tech. 2nd and 3rd place in national innovation challenges. The answer is almost never the obvious chart.</span>
+        </div>
+      </li>
+      <li class="thing">
+        <div class="thing-dt">2024 · Microsoft</div>
+        <div class="thing-bd">
+          <strong>Power BI Data Analyst Associate — PL-300 Certified</strong>
+          <span>Plus Machine Learning Specialization (Stanford) and Deep Learning Specialization (DeepLearning.AI).</span>
+        </div>
+      </li>
+      <li class="thing">
+        <div class="thing-dt">2021–24 · Mumbai</div>
+        <div class="thing-bd">
+          <strong>Built BI infrastructure for insurance clients across India at Nvest Solutions</strong>
+          <span>Reduced manual reporting by 40%, audit queries by 25%. When numbers are wrong, real people make bad financial decisions — that kind of responsibility makes you meticulous.</span>
+        </div>
+      </li>
+      <li class="thing">
+        <div class="thing-dt">2021 · New Delhi</div>
+        <div class="thing-bd">
+          <strong>Operations Analyst Intern — Maruti Suzuki India Limited</strong>
+          <span>Supply chain analytics at one of India's largest automakers. Supply chain data is chaotic in fascinating ways.</span>
+        </div>
+      </li>
+    </ul>
+  </section>
+
+  <hr />
+
+  <!-- PROJECTS -->
+  <section class="sec reveal">
+    <h2 class="sec-title"><em>Projects</em></h2>
+    <ul class="projs">
+      <li class="proj">
+        <div>
+          <div class="proj-name">Fraud Detection Analytics Pipeline</div>
+          <div class="proj-desc">Full AML-style pipeline in SQL Server — customer spending baselines, z-score anomaly detection, velocity rules, composite risk scoring. The hard question: what does normal spending actually look like?</div>
+          <div class="proj-tags"><span class="ptag">SQL SERVER</span><span class="ptag">Z-SCORE</span><span class="ptag">RISK SCORING</span><span class="ptag">AML</span></div>
+        </div>
+        <a href="https://github.com/vickythatguy/fraud-detection-analytics" target="_blank" class="proj-a">GitHub ↗</a>
+      </li>
+      <li class="proj">
+        <div>
+          <div class="proj-name">Grocery Customer Analytics — Instacart Dataset</div>
+          <div class="proj-desc">3M+ orders analyzed across reorder patterns, basket composition, and purchase cycles. What does a shopping cart tell you about someone's week?</div>
+          <div class="proj-tags"><span class="ptag">SQL SERVER</span><span class="ptag">BASKET ANALYSIS</span><span class="ptag">CUSTOMER BEHAVIOR</span></div>
+        </div>
+        <a href="https://github.com/vickythatguy" target="_blank" class="proj-a">GitHub ↗</a>
+      </li>
+      <li class="proj">
+        <div>
+          <div class="proj-name">Insurance Market Analytics Dashboard</div>
+          <div class="proj-desc">Power BI tracking premiums, claims ratios, and persistency across insurers. Snowflake schema, field parameters, RLS. Translating actuarial data so salespeople can actually use it.</div>
+          <div class="proj-tags"><span class="ptag">POWER BI</span><span class="ptag">DAX</span><span class="ptag">RLS</span><span class="ptag">SNOWFLAKE SCHEMA</span></div>
+        </div>
+        <a href="https://github.com/vickythatguy/insurancedashboard" target="_blank" class="proj-a">GitHub ↗</a>
+      </li>
+      <li class="proj">
+        <div>
+          <div class="proj-name">Vendor Performance Analytics</div>
+          <div class="proj-desc">KPI system tracking SLA compliance, defect rates, and delivery failure patterns — built to surface which vendors' promises don't match their record.</div>
+          <div class="proj-tags"><span class="ptag">SQL</span><span class="ptag">PYTHON</span><span class="ptag">POWER BI</span></div>
+        </div>
+        <a href="https://github.com/vickythatguy/vendor-performance-analytics" target="_blank" class="proj-a">GitHub ↗</a>
+      </li>
+      <li class="proj">
+        <div>
+          <div class="proj-name">SMS Spam Classifier</div>
+          <div class="proj-desc">TF-IDF + soft-voting ensemble (Naive Bayes + Logistic Regression + SVM). Spam evolves — so the model learns intent signals, not just vocabulary.</div>
+          <div class="proj-tags"><span class="ptag">PYTHON</span><span class="ptag">NLP</span><span class="ptag">TF-IDF</span><span class="ptag">SCIKIT-LEARN</span></div>
+        </div>
+        <a href="https://github.com/vickythatguy/SmsSpamClassifier" target="_blank" class="proj-a">GitHub ↗</a>
+      </li>
+      <li class="proj">
+        <div>
+          <div class="proj-name">Banking Risk Analytics Dashboard</div>
+          <div class="proj-desc">Credit exposure, LTV ratios, and default patterns by region and product. Surfaces concentration risk that aggregate reports tend to hide.</div>
+          <div class="proj-tags"><span class="ptag">POWER BI</span><span class="ptag">DAX</span><span class="ptag">CREDIT RISK</span></div>
+        </div>
+        <a href="https://github.com/vickythatguy/bankingAnalysis" target="_blank" class="proj-a">GitHub ↗</a>
+      </li>
+    </ul>
+    <p style="margin-top:1.5rem;font-family:var(--mono);font-size:0.62rem;"><a href="https://github.com/vickythatguy" target="_blank" style="color:var(--muted);text-decoration:none;border-bottom:1px solid var(--line);padding-bottom:0.1rem;">All projects on GitHub ↗</a></p>
+  </section>
+
+  <hr />
+
+  <!-- SKILLS -->
+  <section class="sec reveal">
+    <h2 class="sec-title">Technical <em>skills</em></h2>
+    <div class="skills-grid">
+      <div class="sk-group">
+        <h4>Query &amp; Engineering</h4>
+        <ul>
+          <li>SQL — SQL Server, BigQuery, PostgreSQL</li>
+          <li>Python — Pandas, NumPy, Scikit-learn</li>
+          <li>ETL pipelines &amp; data validation</li>
+          <li>Azure · Databricks · GCP</li>
+        </ul>
+      </div>
+      <div class="sk-group">
+        <h4>Business Intelligence</h4>
+        <ul>
+          <li>Power BI · DAX · PL-300 Certified</li>
+          <li>Tableau · Looker</li>
+          <li>Dimensional modeling · snowflake schema</li>
+          <li>Row-level security · field parameters</li>
+        </ul>
+      </div>
+      <div class="sk-group">
+        <h4>Analytics &amp; ML</h4>
+        <ul>
+          <li>Customer segmentation — KMeans, AutoEncoder</li>
+          <li>NLP · sentiment analysis · TF-IDF</li>
+          <li>A/B testing · forecasting</li>
+          <li>Risk scoring · anomaly detection</li>
+        </ul>
+      </div>
+      <div class="sk-group">
+        <h4>Domain</h4>
+        <ul>
+          <li>Insurance &amp; actuarial products</li>
+          <li>Financial services · AML</li>
+          <li>Retail &amp; customer insights</li>
+          <li>BRD / FRD documentation</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- CONTACT -->
+  <section class="sec reveal">
+    <h2 class="sec-title">Get in <em>touch</em></h2>
+    <div class="contact-grid">
+      <p class="contact-blurb">Always up for a conversation about hard data problems, unusual datasets, or why your BI reports don't quite say what you think they say.</p>
+      <ul class="clinks">
+        <li class="clink-item"><div class="cl-lbl">Email</div><a href="mailto:vignesh222022@gmail.com" class="cl-val">vignesh222022@gmail.com</a></li>
+        <li class="clink-item"><div class="cl-lbl">LinkedIn</div><a href="https://linkedin.com/in/vignesh2912" target="_blank" class="cl-val">linkedin.com/in/vignesh2912</a></li>
+        <li class="clink-item"><div class="cl-lbl">GitHub</div><a href="https://github.com/vickythatguy" target="_blank" class="cl-val">github.com/vickythatguy</a></li>
+        <li class="clink-item"><div class="cl-lbl">Phone</div><span class="cl-val">+1 289-356-7697</span></li>
+      </ul>
+    </div>
+  </section>
+
 </div>
-							</section>
 
-						<!-- Two - Education -->
-							<section id="two">
-								<div class="container">
-									<h3>Education</h3>
-									<p>Academic foundation built on rigorous coursework in analytics, AI, and data science.</p>
-									<div class="features features-full">
-										<article class="with-photo">
-											<span class="image edu-photo" data-position="center">
-												<img src="images/convocation.jpg" alt="Vignesh at Ontario Tech University convocation" loading="lazy" />
-											</span>
-											<div class="inner">
-												<h4>Master of Business Analytics and AI</h4>
-												<p><strong>Ontario Tech University</strong> &bull; Oshawa, Ontario<br />
-												2024&ndash;2025 &bull; GPA: 4.15 (Dean's List)</p>
-												<ul>
-													<li><strong>Key Coursework:</strong> Big Data Systems Design, AI Programming, Business Analytics, Data Processing, Data Visualization &amp; Storytelling, Digital Transformation, AI Security Privacy and Trust</li>
-													<li><strong>Leadership:</strong> VP of Google Data Visualization &ndash; Led team in 25+ analytics competitions across Canada, earning 2nd and 3rd place in innovation challenges</li>
-												</ul>
-											</div>
-										</article>
-										<article>
-											<div class="inner">
-												<h4>Bachelor of Engineering</h4>
-												<p><strong>Dronacharya College of Engineering</strong> &bull; New Delhi, India<br />
-												2017&ndash;2021</p>
-												<ul>
-													<li><strong>Relevant Coursework:</strong> Data Structures &amp; Algorithms, Database Management Systems (DBMS), Object-Oriented Programming (OOP), Operating Systems, Computer Networks, Software Engineering, Statistics &amp; Probability</li>
-													<li><strong>Scholarship:</strong> Merit scholarship (first two years)</li>
-													<li><strong>Workshops:</strong> Conducted Machine Learning &amp; Artificial Intelligence workshops for schools and partner universities</li>
-													<li><strong>Hackathons:</strong> Participated in inter-university hackathons and innovation challenges</li>
-												</ul>
-											</div>
-										</article>
-									</div>
-								</div>
-							</section>
+<footer>
+  <span class="ft">© 2025 Vignesh Subramaniam · Toronto, ON</span>
+  <span class="ft"><a href="thedatabehind.html">The Data Behind It →</a></span>
+</footer>
 
-						<!-- Three - Experience -->
-							<section id="three">
-								<div class="container">
-									<h3>Professional Experience</h3>
-									<p>Delivered impactful analytics solutions across diverse business environments.</p>
-									<div class="features features-full">
-										<article>
-											<div class="inner">
-												<h4>Business Analyst</h4>
-												<p><strong>Nvest Solutions</strong> &bull; Mumbai, India &bull; Sep 2021&nbsp;&ndash;&nbsp;Sep 2024</p>
-												<ul>
-													<li>Designed and maintained BI dashboards (Power BI, Excel) and SQL pipelines, improving reporting speed by 35% and enabling self-serve analytics for clients</li>
-													<li>Developed scalable data models and authored BRD/FRDs to align business requirements with technical solutions, reducing rollout timelines by 20%</li>
-													<li>Automated data validation and reconciliation processes using SQL and Excel macros, increasing financial calculation accuracy by 30% and reducing manual errors</li>
-													<li>Collaborated with cross-functional teams to support campaign analysis, strengthen data governance, and streamline reporting logic, driving actionable insights for banks and insurers</li>
-												</ul>
-											</div>
-										</article>
-									</div>
-								</div>
-							</section>
-
-						<!-- Four - Projects -->
-							<section id="four">
-								<div class="container">
-									<h3>Projects</h3>
-									<p>Browse projects by focus area. Each page includes a short write-up, key insights, and links to code/demos.</p>
-
-									<div class="features">
-										<article>
-											<a href="data-analytics.html" class="image"><img src="images/card-data-analytics.svg" alt="Data Analytics projects" /></a>
-											<div class="inner">
-												<h4><a href="data-analytics.html">Data Analytics</a></h4>
-												<p>SQL &bull; Python &bull; EDA &bull; KPI storytelling</p>
-												<ul>
-													<li>Vendor Performance Analytics (SQL + Python + Power BI)</li>
-													<li>Banking Risk Analytics Dashboard (Power BI)</li>
-													<li>Trading Strategies vs. Mutual Fund (Python backtesting)</li>
-												</ul>
-												<ul class="actions">
-													<li><a href="data-analytics.html" class="button">View Data Analytics Projects</a></li>
-												</ul>
-											</div>
-										</article>
-
-										<article>
-											<a href="data-science.html" class="image"><img src="images/card-data-science.svg" alt="Data Science projects" /></a>
-											<div class="inner">
-												<h4><a href="data-science.html">Data Science</a></h4>
-												<p>Machine Learning &bull; Streamlit &bull; Model evaluation</p>
-												<ul>
-													<li>Customer Segmentation (AutoEncoder + KMeans)</li>
-													<li>SMS Spam Classifier (TF-IDF + Voting Classifier)</li>
-													<li>Diabetes Prediction (LogReg / KNN / Random Forest)</li>
-												</ul>
-												<ul class="actions">
-													<li><a href="data-science.html" class="button">View Data Science Projects</a></li>
-												</ul>
-											</div>
-										</article>
-
-										<article>
-											<a href="business-intelligence.html" class="image"><img src="images/card-business-intelligence.svg" alt="Business Intelligence projects" /></a>
-											<div class="inner">
-												<h4><a href="business-intelligence.html">Business Intelligence</a></h4>
-												<p>Power BI &bull; DAX &bull; Executive dashboards</p>
-												<ul>
-													<li>Banking Risk Analytics Dashboard</li>
-													<li>Vendor Performance Dashboard (DAX-powered KPIs)</li>
-												</ul>
-												<ul class="actions">
-													<li><a href="business-intelligence.html" class="button">View BI Projects</a></li>
-												</ul>
-											</div>
-										</article>
-									</div>
-
-									<p><a href="https://github.com/vickythatguy">See more on GitHub</a></p>
-								</div>
-							</section>
-
-						<!-- Five - Skills -->
-							<section id="five">
-								<div class="container">
-									<h3>Technical Skills & Certifications</h3>
-									<p>Comprehensive technical toolkit spanning programming, analytics, and business intelligence.</p>
-									
-									<h4>Technical Competencies</h4>
-									<ul class="feature-icons">
-										<li class="icon solid fa-code"><strong>Programming:</strong> Python (Pandas, NumPy, scikit-learn), R, SQL, C#</li>
-										<li class="icon solid fa-chart-bar"><strong>BI & Visualization:</strong> Power BI, Tableau, Excel (Advanced), GitHub, GCP (BigQuery)</li>
-										<li class="icon solid fa-database"><strong>Analytics Methods:</strong> Dimensional Modeling, ETL Pipelines, Data Governance, Customer Segmentation</li>
-										<li class="icon solid fa-brain"><strong>Advanced Analytics:</strong> Sentiment Analysis, A/B Testing, Forecasting, Campaign Analytics</li>
-										<li class="icon solid fa-industry"><strong>Domain Expertise:</strong> Retail Analytics, Financial Services, Insurance/Actuarial Products</li>
-										<li class="icon solid fa-file-alt"><strong>Documentation:</strong> BRD/FRD Development, BI Reporting, Data Documentation</li>
-									</ul>
-
-									<h4>Professional Certifications</h4>
-									<ul>
-										<li><strong>Microsoft Certified: Power BI Data Analyst Associate (PL-300)</strong> - Microsoft, Sept 2024</li>
-										<li><strong>Machine Learning Specialization</strong> - Stanford Online (Coursera), Mar 2025</li>
-										<li><strong>Deep Learning Specialization</strong> - DeepLearning.AI (Coursera), Apr 2025</li>
-										<li><strong>Statistics for Data Science and Business Analysis</strong> - Udemy, Aug 2024</li>
-									</ul>
-								</div>
-							</section>
-
-						<!-- Six - Contact -->
-							<section id="six">
-								<div class="container">
-									<h3>Get In Touch</h3>
-									<p>I'm always open to discussing new opportunities, collaborations, or data analytics challenges. Feel free to reach out!</p>
-									<form method="post" action="#">
-										<div class="row gtr-uniform">
-											<div class="col-6 col-12-xsmall"><input type="text" name="name" id="name" placeholder="Name" /></div>
-											<div class="col-6 col-12-xsmall"><input type="email" name="email" id="email" placeholder="Email" /></div>
-											<div class="col-12"><input type="text" name="subject" id="subject" placeholder="Subject" /></div>
-											<div class="col-12"><textarea name="message" id="message" placeholder="Message" rows="6"></textarea></div>
-											<div class="col-12">
-												<ul class="actions">
-													<li><input type="submit" class="primary" value="Send Message" /></li>
-													<li><input type="reset" value="Reset Form" /></li>
-												</ul>
-											</div>
-										</div>
-									</form>
-									<div style="margin-top: 2em;">
-										<h4>Contact Information</h4>
-										<ul class="alt">
-											<li><strong>Email:</strong> vignesh222022@gmail.com</li>
-											<li><strong>Phone:</strong> +1-289-356-7697</li>
-											<li><strong>Location:</strong> Toronto, ON, Canada</li>
-											<li><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/vignesh2912">linkedin.com/in/vignesh2912</a></li>
-											<li><strong>GitHub:</strong> <a href="https://github.com/vickythatguy">github.com/vickythatguy</a></li>
-										</ul>
-									</div>
-								</div>
-							</section>
-
-					</div>
-
-				<!-- Footer -->
-					<section id="footer">
-						<div class="container">
-							<ul class="copyright">
-								<li>&copy; 2025 Vignesh Subramaniam. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-							</ul>
-						</div>
-					</section>
-
-			</div>
-
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
-
-	</body>
+<script>
+  const obs = new IntersectionObserver(es => es.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); } }), {threshold:0.08});
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
 </html>
