@@ -18,71 +18,106 @@
       --mono:   'IBM Plex Mono', monospace;
       --body:   'Lora', Georgia, serif;
     }
-    body { background: var(--bg); color: var(--text); font-family: var(--body); font-size: 16px; line-height: 1.7; }
+    body { background: var(--bg); color: var(--text); font-family: var(--body); font-size: 17px; line-height: 1.8; }
 
-    nav { display: flex; align-items: center; justify-content: space-between; padding: 1.75rem 4rem; border-bottom: 1px solid var(--line); position: sticky; top: 0; background: var(--bg); z-index: 100; }
-    .nav-name { font-family: var(--serif); font-size: 1.1rem; font-weight: 600; color: var(--text); text-decoration: none; }
-    .nav-links { display: flex; gap: 2rem; list-style: none; }
-    .nav-links a { font-family: var(--mono); font-size: 0.65rem; color: var(--muted); text-decoration: none; letter-spacing: 0.07em; transition: color 0.2s; }
-    .nav-links a:hover, .nav-links a.active { color: var(--text); }
+    nav { display:flex; align-items:center; justify-content:space-between; padding:1.75rem 5rem; border-bottom:1px solid var(--line); position:sticky; top:0; background:var(--bg); z-index:100; }
+    .nav-name { font-family:var(--serif); font-size:1.35rem; font-weight:600; color:var(--text); text-decoration:none; }
+    .nav-links { display:flex; gap:2.5rem; list-style:none; }
+    .nav-links a { font-family:var(--mono); font-size:0.78rem; color:var(--muted); text-decoration:none; letter-spacing:0.07em; transition:color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color:var(--text); }
 
-    /* HERO - dark with the graduation photo */
+    /* HERO with graduation photo as background */
     .about-hero {
-      background: #111;
-      padding: 5rem 4rem 4rem;
-      position: relative;
-      overflow: hidden;
+      background: #111; padding: 5.5rem 5rem 4.5rem;
+      position: relative; overflow: hidden;
     }
     .about-hero::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background-image: url('images/vignesh-graduation.jpg');
-      background-size: cover;
-      background-position: top center;
-      opacity: 0.18;
-      filter: grayscale(100%);
+      content:''; position:absolute; inset:0;
+      background: url('images/vignesh-graduation.jpg') center top / cover no-repeat;
+      opacity: 0.16; filter: grayscale(100%);
     }
-    .hero-inner { position: relative; z-index: 1; max-width: 840px; margin: 0 auto; }
-    .hero-inner h1 { font-family: var(--serif); font-size: clamp(2.5rem, 6vw, 5rem); font-weight: 300; color: #F8F5EF; line-height: 1.05; letter-spacing: -0.01em; margin-bottom: 1rem; }
-    .hero-inner h1 em { font-style: italic; }
-    .hero-tldr { font-family: var(--mono); font-size: 0.65rem; color: rgba(248,245,239,0.55); letter-spacing: 0.08em; margin-bottom: 0; }
+    .hero-in { position:relative; z-index:1; max-width:880px; margin:0 auto; }
+    .hero-in h1 { font-family:var(--serif); font-size:clamp(3rem,6vw,5.5rem); font-weight:300; color:#F8F5EF; line-height:1.05; letter-spacing:-0.01em; margin-bottom:1rem; }
+    .hero-in h1 em { font-style:italic; }
+    .hero-tldr { font-family:var(--mono); font-size:0.7rem; color:rgba(248,245,239,0.5); letter-spacing:0.08em; }
 
-    .wrap { max-width: 840px; margin: 0 auto; padding: 0 4rem; }
-    hr { border: none; border-top: 1px solid var(--line); margin: 3.5rem 0; }
+    .wrap { max-width:880px; margin:0 auto; padding:0 5rem; }
+    hr { border:none; border-top:1px solid var(--line); margin:3.5rem 0; }
 
     /* ABOUT GRID */
-    .about-grid { display: grid; grid-template-columns: 280px 1fr; gap: 4rem; align-items: start; padding: 4rem 0; }
-    .about-photo { width: 100%; display: block; filter: grayscale(5%); margin-bottom: 1rem; }
-    .photo-label { font-family: var(--mono); font-size: 0.58rem; color: var(--muted); letter-spacing: 0.07em; line-height: 1.6; }
-    .about-text h2 { font-family: var(--serif); font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; letter-spacing: -0.01em; }
-    .about-text p { font-size: 0.95rem; color: var(--text); line-height: 1.85; margin-bottom: 1rem; }
-    .about-text p:last-child { margin-bottom: 0; }
+    .about-grid { display:grid; grid-template-columns:280px 1fr; gap:4.5rem; align-items:start; padding:4.5rem 0; }
 
-    /* PHOTO STRIP */
-    .photo-strip { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1px; background: var(--line); }
-    .ps-item { background: var(--bg); overflow: hidden; }
-    .ps-item img { width: 100%; aspect-ratio: 3/4; object-fit: cover; object-position: top center; display: block; filter: grayscale(8%); transition: filter 0.3s, transform 0.4s; }
-    .ps-item:hover img { filter: grayscale(0%); transform: scale(1.02); }
-    .ps-cap { font-family: var(--mono); font-size: 0.57rem; color: var(--muted); letter-spacing: 0.06em; padding: 0.65rem 0.85rem; line-height: 1.5; }
+    /* photo with hover expand + caption */
+    .photo-wrap { position:relative; display:inline-block; width:100%; cursor:zoom-in; }
+    .photo-wrap img {
+      width:100%; display:block; filter:grayscale(5%);
+      transition: transform 0.35s ease, filter 0.3s ease;
+    }
+    .photo-wrap:hover img { transform:scale(1.03); filter:grayscale(0%); }
+    .photo-caption {
+      position:absolute; bottom:0; left:0; right:0;
+      background: linear-gradient(to top, rgba(26,23,20,0.82) 0%, transparent 100%);
+      padding:1.75rem 1rem 0.85rem;
+      opacity:0; transition:opacity 0.3s ease;
+    }
+    .photo-wrap:hover .photo-caption { opacity:1; }
+    .photo-caption-text {
+      font-family:var(--mono); font-size:0.6rem; color:#F8F5EF;
+      letter-spacing:0.06em; line-height:1.55;
+    }
+    .photo-label { font-family:var(--mono); font-size:0.62rem; color:var(--muted); letter-spacing:0.07em; line-height:1.7; margin-top:0.85rem; }
 
-    footer { padding: 2rem 4rem; border-top: 1px solid var(--line); display: flex; justify-content: space-between; align-items: center; margin-top: 3rem; }
-    .ft { font-family: var(--mono); font-size: 0.58rem; color: var(--muted); letter-spacing: 0.05em; }
-    .ft a { color: var(--muted); text-decoration: none; }
-    .ft a:hover { color: var(--accent); }
+    /* about text — bigger */
+    .about-text h2 { font-family:var(--serif); font-size:1.75rem; font-weight:600; margin-bottom:1.1rem; letter-spacing:-0.01em; }
+    .about-text p { font-size:1rem; color:var(--text); line-height:1.85; margin-bottom:1.1rem; }
+    .about-text p:last-child { margin-bottom:0; }
+    .about-text p em { font-style:italic; color:var(--muted); }
+
+    /* OUTSIDE OF WORK */
+    .outside-section { padding:0 0 4rem; }
+    .out-title { font-family:var(--serif); font-size:1.75rem; font-weight:600; margin-bottom:1.75rem; letter-spacing:-0.01em; }
+    .out-title em { font-style:italic; font-weight:300; }
+    .out-grid { display:grid; grid-template-columns:1fr 1fr 1fr; gap:1px; background:var(--line); }
+    .out-item { background:var(--bg); padding:1.5rem; transition:background 0.2s; }
+    .out-item:hover { background:rgba(139,94,60,0.05); }
+    .out-icon { font-family:var(--mono); font-size:0.6rem; color:var(--accent); letter-spacing:0.12em; text-transform:uppercase; margin-bottom:0.6rem; }
+    .out-name { font-family:var(--body); font-size:0.95rem; font-weight:500; color:var(--text); margin-bottom:0.3rem; }
+    .out-note { font-size:0.855rem; color:var(--muted); line-height:1.65; }
+
+    /* PHOTO STRIP — hover to expand */
+    .strip-title { font-family:var(--mono); font-size:0.62rem; color:var(--muted); letter-spacing:0.12em; text-transform:uppercase; margin-bottom:1.5rem; }
+    .photo-strip { display:grid; grid-template-columns:1fr 1fr 1fr; gap:1px; background:var(--line); margin-bottom:5rem; }
+    .ps-item { background:var(--bg); overflow:hidden; position:relative; cursor:zoom-in; }
+    .ps-item img {
+      width:100%; aspect-ratio:3/4; object-fit:cover; object-position:top center;
+      display:block; filter:grayscale(8%);
+      transition:filter 0.3s, transform 0.45s;
+    }
+    .ps-item:hover img { filter:grayscale(0%); transform:scale(1.04); }
+    .ps-caption {
+      position:absolute; bottom:0; left:0; right:0;
+      background:linear-gradient(to top, rgba(26,23,20,0.88) 0%, transparent 100%);
+      padding:2rem 1rem 0.85rem;
+      opacity:0; transition:opacity 0.3s;
+    }
+    .ps-item:hover .ps-caption { opacity:1; }
+    .ps-caption-text { font-family:var(--mono); font-size:0.6rem; color:#F8F5EF; letter-spacing:0.06em; line-height:1.6; }
+
+    footer { padding:2rem 5rem; border-top:1px solid var(--line); display:flex; justify-content:space-between; align-items:center; }
+    .ft { font-family:var(--mono); font-size:0.6rem; color:var(--muted); letter-spacing:0.05em; }
+    .ft a { color:var(--muted); text-decoration:none; }
+    .ft a:hover { color:var(--accent); }
 
     .reveal { opacity:0; transform:translateY(10px); transition: opacity 0.5s ease, transform 0.5s ease; }
     .reveal.visible { opacity:1; transform:translateY(0); }
 
-    @media(max-width:760px){
-      nav { padding:1.25rem 1.5rem; }
-      .about-hero { padding: 4rem 1.5rem 3rem; }
-      .wrap { padding:0 1.5rem; }
-      .about-grid { grid-template-columns:1fr; gap:2rem; }
-      .photo-strip { grid-template-columns:1fr; }
+    @media(max-width:800px){
+      nav { padding:1.25rem 1.5rem; } .about-hero { padding:4rem 1.5rem 3rem; }
+      .wrap { padding:0 1.5rem; } .about-grid { grid-template-columns:1fr; gap:2.5rem; }
+      .out-grid { grid-template-columns:1fr 1fr; } .photo-strip { grid-template-columns:1fr; }
       footer { flex-direction:column; gap:0.5rem; padding:1.5rem; text-align:center; }
     }
-    @media(max-width:500px){ .nav-links { display:none; } }
+    @media(max-width:500px){ .nav-links { display:none; } .out-grid { grid-template-columns:1fr; } }
   </style>
 </head>
 <body>
@@ -98,9 +133,9 @@
 </nav>
 
 <div class="about-hero">
-  <div class="hero-inner">
+  <div class="hero-in">
     <h1>About <em>me</em></h1>
-    <p class="hero-tldr">(TLDR: I'm a data analyst who asks too many questions.)</p>
+    <p class="hero-tldr">(TLDR: I'm a data analyst who asks too many questions — and hasn't stopped yet.)</p>
   </div>
 </div>
 
@@ -108,40 +143,89 @@
 
   <div class="about-grid reveal">
     <div>
-      <img src="images/vignesh-casual.jpg" alt="Vignesh Subramaniam" class="about-photo" />
+      <div class="photo-wrap">
+        <img src="images/vignesh-casual.jpg" alt="Vignesh Subramaniam" />
+        <div class="photo-caption">
+          <div class="photo-caption-text">Toronto, Canada · the kind of laugh that comes after finishing a hard semester and a good meal</div>
+        </div>
+      </div>
       <div class="photo-label">
         Vignesh Subramaniam<br>
-        Toronto, Canada<br>
-        Originally Chennai, India
+        Toronto, Canada
       </div>
     </div>
     <div class="about-text">
       <h2>Hi there, I'm Vignesh.</h2>
-      <p>I'm a data analyst based in Toronto. I started as a mechanical engineer in Chennai and ended up writing SQL to make sense of insurance data in Mumbai — and never looked back. Something clicked when I realized you could turn a messy spreadsheet into a decision someone actually makes.</p>
-      <p>I came to Canada in 2023 to do a Master's in Business Analytics and AI at Ontario Tech University. Graduated with a 4.15 GPA, Dean's List. Led 25+ data analytics competitions across Canada as VP of the Google Data Visualization Club. The plan kept changing. The curiosity didn't.</p>
-      <p>Right now I'm at Shoppers Drug Mart doing store operations while I job search. Most people see that as a gap. I see it as ground truth — I understand how retail data gets generated before it ever hits a dashboard. That context matters.</p>
-      <p>I'm actively looking for Business Intelligence, Customer Insights, and Data Analyst roles across Canada — at companies like Loblaw, Canadian Tire, TD Bank, Scotiabank, and others where data drives real decisions.</p>
-      <p>Outside of work: I play competitive FPS games and think about the data behind win rates more than most people find normal. I recently built a Legion 5 gaming setup from scratch, researching every component tradeoff before buying. Curiosity doesn't clock out.</p>
-      <p style="font-style:italic;color:var(--muted);">Of course, all views expressed on this website are my own.</p>
+      <p>I'm a data analyst based in Toronto. I started as a mechanical engineer and ended up writing SQL to make sense of insurance data in Mumbai — and never looked back. Something clicked when I realized you could turn a messy spreadsheet into a decision someone actually makes.</p>
+      <p>I came to Canada in 2023 to do a Master's in Business Analytics and AI at Ontario Tech University. Graduated with a 4.15 GPA, Dean's List. Led 25+ data analytics competitions across Canada as VP of the Google Data Visualization Club. <em>The plan kept changing. The curiosity didn't.</em></p>
+      <p>Right now I'm at Shoppers Drug Mart doing store operations while I job search. Most people see that as a gap. I see it as ground truth — I understand how retail data gets generated before it ever hits a dashboard. That context matters when you're building something people actually rely on.</p>
+      <p>I'm actively looking for Business Intelligence, Customer Insights, and Data Analyst roles across Canada — at companies like Loblaw, Canadian Tire, TD Bank, Scotiabank, and others where analytics drives real decisions.</p>
+      <p><em>Of course, all views expressed here are my own.</em></p>
     </div>
   </div>
 
   <hr />
 
+  <!-- OUTSIDE OF WORK -->
+  <section class="outside-section reveal">
+    <h2 class="out-title">Outside of <em>work</em></h2>
+    <div class="out-grid">
+      <div class="out-item">
+        <div class="out-icon">Gaming</div>
+        <div class="out-name">Competitive FPS</div>
+        <div class="out-note">I play competitive FPS and think about win rates, positioning patterns, and decision trees under pressure more than most people find normal. The data brain doesn't turn off.</div>
+      </div>
+      <div class="out-item">
+        <div class="out-icon">Travel</div>
+        <div class="out-name">Exploring cities</div>
+        <div class="out-note">I love wandering into new places with no plan and seeing what I find. Moving from India to Canada is the biggest version of that — and it's been worth every awkward first winter.</div>
+      </div>
+      <div class="out-item">
+        <div class="out-icon">Chess</div>
+        <div class="out-name">Chess (I'm bad at it)</div>
+        <div class="out-note">I play chess badly and enthusiastically. Somewhere between a beginner and someone who should know better. What I love about it is that every game is just a sequence of decisions — same as analytics, worse consequences.</div>
+      </div>
+      <div class="out-item">
+        <div class="out-icon">Photography</div>
+        <div class="out-name">Chasing sunrises &amp; sunsets</div>
+        <div class="out-note">There's something about that 20-minute window when the light changes completely that I can't walk past without stopping. Toronto's waterfront at golden hour hasn't gotten old yet.</div>
+      </div>
+      <div class="out-item">
+        <div class="out-icon">Reading</div>
+        <div class="out-name">Books — data and fiction both</div>
+        <div class="out-note">I read data books for work and Dostoevsky or Kafka for everything else. The overlap is more than you'd think — both are about what people do when they're under pressure.</div>
+      </div>
+      <div class="out-item">
+        <div class="out-icon">Currently</div>
+        <div class="out-name">Job searching + networking</div>
+        <div class="out-note">Actively building connections in Toronto's data and analytics community. If you want to grab a coffee or a LinkedIn chat, I'm always up for it — reach out anytime.</div>
+      </div>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- IN PICTURES -->
   <div class="reveal">
-    <div style="font-family:var(--mono);font-size:0.6rem;color:var(--muted);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:1.5rem;">In pictures</div>
+    <div class="strip-title">In pictures — hover to see more</div>
     <div class="photo-strip">
       <div class="ps-item">
-        <img src="images/vignesh-graduation.jpg" alt="Convocation at Ontario Tech University" />
-        <div class="ps-cap">Ontario Tech convocation · Master of Business Analytics &amp; AI · Dean's List · 2025</div>
+        <img src="images/vignesh-graduation.jpg" alt="Convocation at Ontario Tech" />
+        <div class="ps-caption">
+          <div class="ps-caption-text">Ontario Tech University convocation · Master of Business Analytics &amp; AI · GPA 4.15 · Dean's List · 2025 · the gown is a rental but the degree is real</div>
+        </div>
       </div>
       <div class="ps-item">
         <img src="images/vignesh-casual.jpg" alt="Vignesh at a restaurant" />
-        <div class="ps-cap">Toronto · post-finals energy · the plate was empty before this photo was taken</div>
+        <div class="ps-caption">
+          <div class="ps-caption-text">Toronto · post-finals dinner · the plate was empty long before this photo was taken · Christmas 2024</div>
+        </div>
       </div>
       <div class="ps-item">
         <img src="images/vignesh-casual2.jpg" alt="Vignesh" />
-        <div class="ps-cap">Somewhere in Toronto · curious as usual</div>
+        <div class="ps-caption">
+          <div class="ps-caption-text">Somewhere in Toronto · the plaid jacket is doing more work than the data models that week · genuinely curious about what was on that plate</div>
+        </div>
       </div>
     </div>
   </div>
@@ -154,7 +238,7 @@
 </footer>
 
 <script>
-  const obs = new IntersectionObserver(es => es.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); } }), {threshold:0.08});
+  const obs = new IntersectionObserver(es => es.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); } }), {threshold:0.06});
   document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 </script>
 </body>

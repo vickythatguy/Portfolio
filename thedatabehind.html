@@ -18,76 +18,108 @@
       --mono:   'IBM Plex Mono', monospace;
       --body:   'Lora', Georgia, serif;
     }
-    body { background: var(--bg); color: var(--text); font-family: var(--body); font-size: 16px; line-height: 1.7; }
+    body { background:var(--bg); color:var(--text); font-family:var(--body); font-size:17px; line-height:1.8; }
 
-    nav { display: flex; align-items: center; justify-content: space-between; padding: 1.75rem 4rem; border-bottom: 1px solid var(--line); position: sticky; top: 0; background: var(--bg); z-index: 100; }
-    .nav-name { font-family: var(--serif); font-size: 1.1rem; font-weight: 600; color: var(--text); text-decoration: none; }
-    .nav-links { display: flex; gap: 2rem; list-style: none; }
-    .nav-links a { font-family: var(--mono); font-size: 0.65rem; color: var(--muted); text-decoration: none; letter-spacing: 0.07em; transition: color 0.2s; }
-    .nav-links a:hover, .nav-links a.active { color: var(--text); }
+    nav { display:flex; align-items:center; justify-content:space-between; padding:1.75rem 5rem; border-bottom:1px solid var(--line); position:sticky; top:0; background:var(--bg); z-index:100; }
+    .nav-name { font-family:var(--serif); font-size:1.35rem; font-weight:600; color:var(--text); text-decoration:none; }
+    .nav-links { display:flex; gap:2.5rem; list-style:none; }
+    .nav-links a { font-family:var(--mono); font-size:0.78rem; color:var(--muted); text-decoration:none; letter-spacing:0.07em; transition:color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color:var(--text); }
 
-    .wrap { max-width: 840px; margin: 0 auto; padding: 0 4rem; }
+    .wrap { max-width:880px; margin:0 auto; padding:0 5rem; }
 
-    .page-head { padding: 4.5rem 0 0; margin-bottom: 3rem; text-align: center; }
-    .page-head h1 { font-family: var(--serif); font-size: clamp(2.5rem, 5vw, 4.5rem); font-weight: 300; letter-spacing: -0.01em; color: var(--text); margin-bottom: 0.75rem; }
-    .page-head h1 em { font-style: italic; }
-    .page-head .sub { font-family: var(--mono); font-size: 0.62rem; color: var(--muted); letter-spacing: 0.08em; }
+    .page-head { padding:4.5rem 0 0; margin-bottom:3rem; text-align:center; }
+    .page-head h1 { font-family:var(--serif); font-size:clamp(2.5rem,5vw,4.5rem); font-weight:300; letter-spacing:-0.01em; margin-bottom:0.75rem; }
+    .page-head h1 em { font-style:italic; }
+    .page-head .sub { font-family:var(--mono); font-size:0.68rem; color:var(--muted); letter-spacing:0.08em; }
 
-    hr { border: none; border-top: 1px solid var(--line); margin: 3rem 0; }
+    hr { border:none; border-top:1px solid var(--line); margin:3rem 0; }
 
-    /* TWO-COL LAYOUT — like Jacqueline's bookshelf / data page */
-    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; padding: 3rem 0; }
-    .col-head { font-family: var(--serif); font-size: 1.25rem; font-weight: 600; color: var(--text); margin-bottom: 2rem; border-bottom: 1px solid var(--line); padding-bottom: 0.75rem; }
+    /* TWO COL */
+    .two-col { display:grid; grid-template-columns:1fr 1fr; gap:5rem; padding:3rem 0; }
+    .col-head { font-family:var(--serif); font-size:1.4rem; font-weight:600; margin-bottom:2rem; border-bottom:1px solid var(--line); padding-bottom:0.75rem; }
 
     /* BOOKSHELF */
-    .shelf-section { margin-bottom: 2rem; }
-    .shelf-cat { font-family: var(--mono); font-size: 0.58rem; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.75rem; }
-    .shelf-list { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
-    .shelf-list li { font-size: 0.875rem; color: var(--text); padding-left: 0.85rem; position: relative; }
-    .shelf-list li::before { content: '↳'; position: absolute; left: 0; color: var(--muted); font-family: var(--mono); font-size: 0.65rem; top: 0.2rem; }
-    .shelf-list a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.2s; }
-    .shelf-list a:hover { border-color: var(--accent); }
+    .shelf-section { margin-bottom:2rem; }
+    .shelf-cat { font-family:var(--mono); font-size:0.6rem; color:var(--muted); letter-spacing:0.1em; text-transform:uppercase; margin-bottom:0.85rem; }
+    .shelf-list { list-style:none; display:flex; flex-direction:column; gap:0.55rem; }
+    .shelf-list li { font-size:0.9rem; color:var(--text); padding-left:0.85rem; position:relative; line-height:1.6; }
+    .shelf-list li::before { content:'↳'; position:absolute; left:0; color:var(--muted); font-family:var(--mono); font-size:0.65rem; top:0.2rem; }
+    .shelf-list a { color:var(--accent); text-decoration:none; border-bottom:1px solid transparent; transition:border-color 0.2s; }
+    .shelf-list a:hover { border-color:var(--accent); }
+    .shelf-note { font-size:0.8rem; color:var(--muted); font-style:italic; margin-top:0.15rem; display:block; }
+
+    /* CHANNELS — humanized */
+    .channel-item { margin-bottom:1.35rem; border-bottom:1px solid var(--line); padding-bottom:1.35rem; }
+    .channel-item:last-child { border-bottom:none; padding-bottom:0; }
+    .ch-name { font-size:0.9rem; font-weight:500; color:var(--text); margin-bottom:0.25rem; }
+    .ch-desc { font-size:0.855rem; color:var(--muted); line-height:1.65; }
+
+    /* QUESTIONS — click to expand popup */
+    .questions-wrap { margin-bottom:4rem; }
+    .q-list { list-style:none; }
+    .q-item {
+      padding:1.25rem 0; border-bottom:1px solid var(--line);
+      cursor:pointer; position:relative; transition:background 0.2s;
+    }
+    .q-item:first-child { border-top:1px solid var(--line); }
+    .q-item:hover { background:rgba(139,94,60,0.04); }
+    .q-header { display:flex; align-items:baseline; justify-content:space-between; gap:1rem; }
+    .q-text { font-family:var(--serif); font-size:1.2rem; font-style:italic; font-weight:300; color:var(--text); line-height:1.4; }
+    .q-domain { font-family:var(--mono); font-size:0.58rem; color:var(--muted); letter-spacing:0.07em; margin-top:0.3rem; }
+    .q-toggle { font-family:var(--mono); font-size:0.65rem; color:var(--muted); flex-shrink:0; transition:transform 0.25s; }
+    .q-item.open .q-toggle { transform:rotate(45deg); }
+    .q-expand {
+      max-height:0; overflow:hidden;
+      transition:max-height 0.35s ease, opacity 0.3s;
+      opacity:0;
+    }
+    .q-item.open .q-expand { max-height:300px; opacity:1; }
+    .q-expand-inner {
+      margin-top:0.85rem; padding-top:0.85rem;
+      border-top:1px solid var(--line);
+      font-size:0.9rem; color:var(--text); line-height:1.75;
+    }
 
     /* DATASETS */
-    .dataset { margin-bottom: 1.5rem; border-bottom: 1px solid var(--line); padding-bottom: 1.5rem; }
-    .dataset:last-child { border-bottom: none; padding-bottom: 0; }
-    .ds-name { font-size: 0.9rem; font-weight: 500; color: var(--text); margin-bottom: 0.2rem; }
-    .ds-why { font-size: 0.845rem; color: var(--muted); line-height: 1.65; margin-bottom: 0.25rem; }
-    .ds-tag { font-family: var(--mono); font-size: 0.55rem; color: var(--accent); letter-spacing: 0.07em; }
+    .dataset { margin-bottom:1.5rem; border-bottom:1px solid var(--line); padding-bottom:1.5rem; }
+    .dataset:last-child { border-bottom:none; padding-bottom:0; }
+    .ds-name { font-size:0.95rem; font-weight:500; color:var(--text); margin-bottom:0.2rem; }
+    .ds-why { font-size:0.875rem; color:var(--muted); line-height:1.7; margin-bottom:0.3rem; }
+    .ds-tag { font-family:var(--mono); font-size:0.57rem; color:var(--accent); letter-spacing:0.07em; }
 
-    /* QUESTIONS */
-    .questions { list-style: none; display: flex; flex-direction: column; gap: 0; }
-    .q { padding: 1.25rem 0; border-bottom: 1px solid var(--line); }
-    .q:first-child { border-top: 1px solid var(--line); }
-    .q-text { font-family: var(--serif); font-size: 1.2rem; font-style: italic; font-weight: 300; color: var(--text); line-height: 1.4; margin-bottom: 0.3rem; }
-    .q-domain { font-family: var(--mono); font-size: 0.57rem; color: var(--muted); letter-spacing: 0.08em; }
+    /* RIGHT NOW */
+    .currently { display:grid; grid-template-columns:1fr 1fr 1fr; gap:1px; background:var(--line); }
+    .curr-item { background:var(--bg); padding:1.35rem; }
+    .curr-lbl { font-family:var(--mono); font-size:0.58rem; color:var(--muted); letter-spacing:0.1em; text-transform:uppercase; margin-bottom:0.4rem; }
+    .curr-val { font-size:0.9rem; font-weight:500; color:var(--text); margin-bottom:0.15rem; }
+    .curr-note { font-size:0.8rem; color:var(--muted); line-height:1.55; }
 
-    /* CURRENTLY */
-    .currently { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1px; background: var(--line); }
-    .curr-item { background: var(--bg); padding: 1.25rem; }
-    .curr-lbl { font-family: var(--mono); font-size: 0.57rem; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.4rem; }
-    .curr-val { font-size: 0.875rem; font-weight: 500; color: var(--text); margin-bottom: 0.15rem; }
-    .curr-note { font-size: 0.78rem; color: var(--muted); }
+    /* NETWORKING */
+    .network-box {
+      background:rgba(139,94,60,0.05); border:1px solid rgba(139,94,60,0.2);
+      padding:1.75rem 2rem; margin:3rem 0;
+    }
+    .nb-title { font-family:var(--serif); font-size:1.25rem; font-weight:600; margin-bottom:0.65rem; }
+    .nb-text { font-size:0.9rem; color:var(--muted); line-height:1.75; }
+    .nb-text a { color:var(--accent); text-decoration:none; border-bottom:1px solid transparent; transition:border-color 0.2s; }
+    .nb-text a:hover { border-color:var(--accent); }
 
-    footer { padding: 2rem 4rem; border-top: 1px solid var(--line); display: flex; justify-content: space-between; align-items: center; margin-top: 3rem; }
-    .ft { font-family: var(--mono); font-size: 0.58rem; color: var(--muted); letter-spacing: 0.05em; }
-    .ft a { color: var(--muted); text-decoration: none; }
-    .ft a:hover { color: var(--accent); }
+    footer { padding:2rem 5rem; border-top:1px solid var(--line); display:flex; justify-content:space-between; align-items:center; margin-top:1rem; }
+    .ft { font-family:var(--mono); font-size:0.6rem; color:var(--muted); letter-spacing:0.05em; }
+    .ft a { color:var(--muted); text-decoration:none; }
+    .ft a:hover { color:var(--accent); }
 
     .reveal { opacity:0; transform:translateY(10px); transition: opacity 0.5s ease, transform 0.5s ease; }
     .reveal.visible { opacity:1; transform:translateY(0); }
 
-    @media(max-width:760px){
-      nav { padding:1.25rem 1.5rem; }
-      .wrap { padding:0 1.5rem; }
+    @media(max-width:800px){
+      nav { padding:1.25rem 1.5rem; } .wrap { padding:0 1.5rem; }
       .two-col { grid-template-columns:1fr; gap:3rem; }
       .currently { grid-template-columns:1fr 1fr; }
       footer { flex-direction:column; gap:0.5rem; padding:1.5rem; text-align:center; }
     }
-    @media(max-width:500px){
-      .nav-links { display:none; }
-      .currently { grid-template-columns:1fr; }
-    }
+    @media(max-width:500px){ .nav-links { display:none; } .currently { grid-template-columns:1fr; } }
   </style>
 </head>
 <body>
@@ -106,21 +138,48 @@
 
   <div class="page-head">
     <h1>The Data <em>Behind It</em></h1>
-    <p class="sub">Things I read, datasets worth digging into, and questions I can't stop thinking about.</p>
+    <p class="sub">Things I read, people I learn from, and questions I can't stop thinking about.</p>
   </div>
 
   <hr />
 
-  <!-- BOOKSHELF + DATASETS — two column like Jacqueline -->
+  <!-- BOOKSHELF + DATASETS — two column -->
   <div class="two-col reveal">
 
+    <!-- LEFT: BOOKSHELF -->
     <div>
       <h2 class="col-head">Bookshelf</h2>
 
       <div class="shelf-section">
-        <div class="shelf-cat">Books</div>
+        <div class="shelf-cat">Fiction and the good stuff</div>
         <ul class="shelf-list">
-          <li>Storytelling with Data — Cole Nussbaumer Knaflic</li>
+          <li>Fyodor Dostoevsky — Crime and Punishment, The Brothers Karamazov
+            <span class="shelf-note">characters under extreme pressure making terrible decisions. sounds familiar.</span>
+          </li>
+          <li>Franz Kafka — The Trial, The Metamorphosis
+            <span class="shelf-note">when systems stop making sense but everyone keeps following them anyway.</span>
+          </li>
+          <li>Virginia Woolf — Mrs Dalloway, To the Lighthouse
+            <span class="shelf-note">teaches you to slow down and pay attention to the texture of things.</span>
+          </li>
+          <li>Stephen King — The Stand, It
+            <span class="shelf-note">pure storytelling instinct. pace, tension, character. applies more to dashboards than you'd think.</span>
+          </li>
+          <li>R.K. Narayan — Malgudi Days
+            <span class="shelf-note">grew up with this. small-town Indian life rendered with warmth and precision.</span>
+          </li>
+          <li>Amitav Ghosh — The Shadow Lines
+            <span class="shelf-note">memory, borders, how people make sense of where they're from.</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="shelf-section">
+        <div class="shelf-cat">Data books I keep returning to</div>
+        <ul class="shelf-list">
+          <li>Storytelling with Data — Cole Nussbaumer Knaflic
+            <span class="shelf-note">the one book I'd make every BI person read first.</span>
+          </li>
           <li>The Signal and the Noise — Nate Silver</li>
           <li>How Charts Lie — Alberto Cairo</li>
           <li>Naked Statistics — Charles Wheelan</li>
@@ -131,134 +190,213 @@
       <div class="shelf-section">
         <div class="shelf-cat">Courses I actually finished</div>
         <ul class="shelf-list">
-          <li><a href="https://www.coursera.org/specializations/machine-learning-introduction" target="_blank">Machine Learning Specialization — Stanford / Andrew Ng</a></li>
-          <li><a href="https://www.coursera.org/specializations/deep-learning" target="_blank">Deep Learning Specialization — DeepLearning.AI</a></li>
-          <li>Microsoft PL-300 — Power BI Data Analyst</li>
-          <li>Statistics for Data Science — Udemy</li>
-        </ul>
-      </div>
-
-      <div class="shelf-section">
-        <div class="shelf-cat">Channels worth your time</div>
-        <ul class="shelf-list">
-          <li>StatQuest with Josh Starmer — when stats needs to actually make sense</li>
-          <li>Alex the Analyst — SQL deep dives</li>
-          <li>Towards Data Science — Medium publication</li>
-        </ul>
-      </div>
-
-      <div class="shelf-section">
-        <div class="shelf-cat">Tools I keep coming back to</div>
-        <ul class="shelf-list">
-          <li>SQL Server Management Studio — still my default thinking space</li>
-          <li>Power BI with field parameters — underrated for dynamic dashboards</li>
-          <li>Python + Pandas — for when SQL isn't enough</li>
-          <li>DBeaver — when I need multi-database work</li>
+          <li><a href="https://www.coursera.org/specializations/machine-learning-introduction" target="_blank">Machine Learning Specialization — Stanford / Andrew Ng</a>
+            <span class="shelf-note">the clearest foundation for ML I've found. Andrew Ng explains intuition before math.</span>
+          </li>
+          <li><a href="https://www.coursera.org/specializations/deep-learning" target="_blank">Deep Learning Specialization — DeepLearning.AI</a>
+            <span class="shelf-note">where I understood what neural networks actually do, not just that they work.</span>
+          </li>
+          <li>Microsoft PL-300 — Power BI Data Analyst
+            <span class="shelf-note">validated everything I'd been building in practice and filled in the gaps I'd been quietly ignoring.</span>
+          </li>
+          <li>Statistics for Data Science — Udemy
+            <span class="shelf-note">filled a gap from engineering school. probability finally clicked here.</span>
+          </li>
         </ul>
       </div>
     </div>
 
+    <!-- RIGHT: CHANNELS + DATASETS -->
     <div>
-      <h2 class="col-head">Data to Play With</h2>
+      <h2 class="col-head">Who I learn from</h2>
 
-      <div class="dataset">
-        <div class="ds-name">Instacart Market Basket Dataset</div>
-        <div class="ds-why">3M+ grocery orders. Customer behavior doesn't lie — reorder patterns tell you more about a person than a survey ever would.</div>
-        <div class="ds-tag">RETAIL · CUSTOMER BEHAVIOR</div>
+      <div class="channel-item">
+        <div class="ch-name">StatQuest with Josh Starmer</div>
+        <div class="ch-desc">My first stop when a concept isn't clicking. Josh takes something like PCA or gradient boosting and strips it down until the core idea is obvious. If I need to understand something quickly and properly, I start here.</div>
       </div>
 
-      <div class="dataset">
-        <div class="ds-name">Statistics Canada — Open Data</div>
-        <div class="ds-why">CPI, labour force surveys, consumer spending by category. Real Canada, real decisions. Underused by most analysts.</div>
-        <div class="ds-tag">ECONOMICS · PUBLIC DATA</div>
+      <div class="channel-item">
+        <div class="ch-name">Alex The Analyst</div>
+        <div class="ch-desc">When I want to see how SQL or Power BI gets used on actual projects — not toy examples. Alex keeps it practical and moves at a good pace. I've picked up workflow habits here that stuck.</div>
       </div>
 
-      <div class="dataset">
-        <div class="ds-name">Kaggle Credit Card Fraud Dataset</div>
-        <div class="ds-why">Class imbalance at its worst. The interesting problem is always defining what "normal" looks like before you can spot what isn't.</div>
-        <div class="ds-tag">FINANCIAL CRIME · ML</div>
+      <div class="channel-item">
+        <div class="ch-name">Data With Bara</div>
+        <div class="ch-desc">Solid for Power BI deep dives. When I'm trying to build something specific in DAX or figure out why my model is being slow, Bara's walkthroughs usually have what I need.</div>
       </div>
 
-      <div class="dataset">
-        <div class="ds-name">UCI Machine Learning Repository</div>
-        <div class="ds-why">Old school but deep. When I want a clean problem to think through from scratch.</div>
-        <div class="ds-tag">ML · EXPLORATION</div>
+      <div class="channel-item">
+        <div class="ch-name">IBM Technology</div>
+        <div class="ch-desc">What I turn on when I want to understand something outside the data world — cloud architecture, AI ethics, enterprise systems. Well-produced and doesn't talk down to you.</div>
       </div>
 
-      <div class="dataset">
-        <div class="ds-name">Canadian Open Banking Data</div>
-        <div class="ds-why">Watching how Canada approaches open banking compared to the UK. The regulatory structure shapes what analytics is even possible.</div>
-        <div class="ds-tag">FINANCIAL SERVICES · POLICY</div>
+      <div class="channel-item">
+        <div class="ch-name">Veritasium</div>
+        <div class="ch-desc">For when I just want to think about something completely different. Derek covers physics, math, psychology — big ideas explained with care. I'd recommend this to anyone who's curious about how anything works.</div>
       </div>
     </div>
-
   </div>
 
   <hr />
 
-  <!-- QUESTIONS -->
-  <div class="reveal">
-    <div style="font-family:var(--serif);font-size:1.25rem;font-weight:600;margin-bottom:2rem;">Questions I keep <em>circling back to</em></div>
-    <ul class="questions">
-      <li class="q">
-        <div class="q-text">Why does fraud look like normal behavior — until it doesn't?</div>
-        <div class="q-domain">AML · anomaly detection · behavioral baselines</div>
+  <!-- DATA TO EXPLORE -->
+  <div class="reveal" style="padding-bottom:3.5rem;">
+    <h2 style="font-family:var(--serif);font-size:1.6rem;font-weight:600;margin-bottom:0.5rem;letter-spacing:-0.01em;">Data worth <em>exploring</em></h2>
+    <p style="font-size:0.88rem;color:var(--muted);margin-bottom:2rem;font-family:var(--mono);letter-spacing:0.05em;">datasets I find myself going back to</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem 4rem;">
+      <div class="dataset">
+        <div class="ds-name">Instacart Market Basket Dataset</div>
+        <div class="ds-why">3M+ grocery orders. Reorder patterns tell you more about how someone actually lives than almost any survey — people's habits show up in their carts before they'd ever describe them out loud.</div>
+        <div class="ds-tag">RETAIL · CUSTOMER BEHAVIOR</div>
+      </div>
+      <div class="dataset">
+        <div class="ds-name">Statistics Canada — Open Data</div>
+        <div class="ds-why">CPI, labour force surveys, consumer spending patterns. Real Canada, real decisions. Most analysts don't dig into this as much as they should.</div>
+        <div class="ds-tag">ECONOMICS · PUBLIC DATA</div>
+      </div>
+      <div class="dataset">
+        <div class="ds-name">Kaggle Credit Card Fraud Dataset</div>
+        <div class="ds-why">Class imbalance at its worst — 0.17% fraud rate. The real challenge is always defining what "normal" looks like before you can see what isn't. This one teaches you that fast.</div>
+        <div class="ds-tag">FINANCIAL CRIME · ML</div>
+      </div>
+      <div class="dataset">
+        <div class="ds-name">Lyft / Uber Open Datasets</div>
+        <div class="ds-why">Ride routing, demand patterns, and surge pricing data. I'm fascinated by how platforms like Lyft optimize for thousands of simultaneous decisions — pricing, routing, driver allocation — in real time.</div>
+        <div class="ds-tag">OPERATIONS · PRODUCT ANALYTICS</div>
+      </div>
+    </div>
+  </div>
+
+  <hr />
+
+  <!-- QUESTIONS — click to expand -->
+  <div class="questions-wrap reveal">
+    <h2 style="font-family:var(--serif);font-size:1.6rem;font-weight:600;margin-bottom:0.5rem;letter-spacing:-0.01em;">Questions I keep <em>circling back to</em></h2>
+    <p style="font-size:0.78rem;color:var(--muted);font-family:var(--mono);letter-spacing:0.06em;margin-bottom:1.75rem;">click any question to expand</p>
+    <ul class="q-list">
+
+      <li class="q-item" onclick="this.classList.toggle('open')">
+        <div class="q-header">
+          <div>
+            <div class="q-text">When someone enters a new market, what does their first week of behavior actually tell you?</div>
+            <div class="q-domain">customer acquisition · onboarding analytics · cohort behavior</div>
+          </div>
+          <span class="q-toggle">+</span>
+        </div>
+        <div class="q-expand">
+          <div class="q-expand-inner">
+            The first few transactions a customer makes are some of the most information-dense data a company has. Are they exploring cautiously or diving straight in? What category do they hit first? Do they return in 3 days or 3 weeks? That behavior predicts long-term retention far better than any demographic signal. I find myself thinking about this whenever I look at customer acquisition data — the pattern is usually already there in week one, we just don't always look.
+          </div>
+        </div>
       </li>
-      <li class="q">
-        <div class="q-text">What does a grocery cart actually reveal about someone's week?</div>
-        <div class="q-domain">retail analytics · customer behavior · basket analysis</div>
+
+      <li class="q-item" onclick="this.classList.toggle('open')">
+        <div class="q-header">
+          <div>
+            <div class="q-text">How does a company like Lyft or Skip decide that one route is worth more than another in real time?</div>
+            <div class="q-domain">dynamic pricing · route optimization · operations analytics</div>
+          </div>
+          <span class="q-toggle">+</span>
+        </div>
+        <div class="q-expand">
+          <div class="q-expand-inner">
+            There's a decision being made in milliseconds that balances driver availability, demand density, time windows, and price sensitivity — all at once, for thousands of trips simultaneously. That's not just optimization, it's a miniature market being created and resolved in real time. I've been digging into how surge pricing and routing algorithms interact and what the tradeoffs actually look like at scale.
+          </div>
+        </div>
       </li>
-      <li class="q">
-        <div class="q-text">At what point does a dashboard stop being useful and start being noise?</div>
-        <div class="q-domain">BI design · information density · stakeholder communication</div>
+
+      <li class="q-item" onclick="this.classList.toggle('open')">
+        <div class="q-header">
+          <div>
+            <div class="q-text">Why does fraud look like normal behavior — until it doesn't?</div>
+            <div class="q-domain">AML · anomaly detection · behavioral baselines</div>
+          </div>
+          <span class="q-toggle">+</span>
+        </div>
+        <div class="q-expand">
+          <div class="q-expand-inner">
+            The hardest part of fraud detection isn't finding the outlier — it's defining what normal looks like in the first place. A customer who suddenly makes 12 transactions in a day might be a fraudster or might have just gotten paid and gone Christmas shopping. Context is everything, and most rule-based systems can't hold context across time. This is why I built a z-score and velocity based system for my fraud detection project — you have to establish baselines before any threshold makes sense.
+          </div>
+        </div>
       </li>
-      <li class="q">
-        <div class="q-text">Why do insurance agents make worse proposals when they have more data?</div>
-        <div class="q-domain">decision-making · information overload · dashboard UX</div>
+
+      <li class="q-item" onclick="this.classList.toggle('open')">
+        <div class="q-header">
+          <div>
+            <div class="q-text">What does a customer's shopping cart actually reveal about how they're feeling that week?</div>
+            <div class="q-domain">retail analytics · basket analysis · implicit behavioral signals</div>
+          </div>
+          <span class="q-toggle">+</span>
+        </div>
+        <div class="q-expand">
+          <div class="q-expand-inner">
+            Convenience food, comfort snacks, late-night orders — all of these are behavioral signals that show up before a customer would ever describe themselves as "stressed" or "time-crunched." The Instacart dataset is full of this kind of implicit signal. I've spent a lot of time on it because I think customer understanding that comes from observed behavior is fundamentally more honest than what comes from surveys or focus groups.
+          </div>
+        </div>
       </li>
-      <li class="q">
-        <div class="q-text">Is there a detectable pattern in how FPS players make bad calls under pressure?</div>
-        <div class="q-domain">behavioral data · competitive gaming · decision latency</div>
+
+      <li class="q-item" onclick="this.classList.toggle('open')">
+        <div class="q-header">
+          <div>
+            <div class="q-text">At what point does a dashboard stop helping people decide and start making them anxious?</div>
+            <div class="q-domain">BI design · information density · decision support</div>
+          </div>
+          <span class="q-toggle">+</span>
+        </div>
+        <div class="q-expand">
+          <div class="q-expand-inner">
+            I've seen dashboards with 30 KPIs on a single screen that technically had all the right data — and led to worse decisions than a simple weekly summary email would have. There's a real cognitive cost to putting too much in front of someone. The dashboards that work are the ones that answer one specific question clearly, not the ones that try to show everything. I think about this every time I start designing a report.
+          </div>
+        </div>
       </li>
+
     </ul>
   </div>
 
   <hr />
 
-  <!-- CURRENTLY -->
-  <div class="reveal" style="margin-bottom:4rem;">
-    <div style="font-family:var(--serif);font-size:1.25rem;font-weight:600;margin-bottom:2rem;">Right <em>now</em></div>
+  <!-- RIGHT NOW -->
+  <div class="reveal" style="margin-bottom:3rem;">
+    <h2 style="font-family:var(--serif);font-size:1.6rem;font-weight:600;margin-bottom:2rem;letter-spacing:-0.01em;">Right <em>now</em></h2>
     <div class="currently">
       <div class="curr-item">
         <div class="curr-lbl">Reading</div>
-        <div class="curr-val">Storytelling with Data</div>
-        <div class="curr-note">Cole Nussbaumer Knaflic</div>
+        <div class="curr-val">TensorFlow in Practice</div>
+        <div class="curr-note">bridging the gap between ML theory and actually building things</div>
       </div>
       <div class="curr-item">
         <div class="curr-lbl">Studying</div>
-        <div class="curr-val">dbt + data modeling</div>
-        <div class="curr-note">building on my SQL foundation</div>
+        <div class="curr-val">Data modeling &amp; schemas</div>
+        <div class="curr-note">star schema, slowly changing dimensions, dbt patterns</div>
+      </div>
+      <div class="curr-item">
+        <div class="curr-lbl">Exploring</div>
+        <div class="curr-val">n8n and AI agents</div>
+        <div class="curr-note">automation workflows, LLM-powered pipelines — genuinely excited about this space</div>
+      </div>
+      <div class="curr-item">
+        <div class="curr-lbl">Job searching</div>
+        <div class="curr-val">BI and Insights Analyst roles</div>
+        <div class="curr-note">actively looking in Toronto — retail, banking, tech all on the radar</div>
       </div>
       <div class="curr-item">
         <div class="curr-lbl">Playing</div>
         <div class="curr-val">Competitive FPS</div>
-        <div class="curr-note">thinking about the data behind win rates</div>
+        <div class="curr-note">still thinking about the data behind win rates while losing</div>
       </div>
       <div class="curr-item">
-        <div class="curr-lbl">Job searching</div>
-        <div class="curr-val">BI · Insights · Analytics</div>
-        <div class="curr-note">Toronto, ON · open to hybrid / remote</div>
+        <div class="curr-lbl">Networking</div>
+        <div class="curr-val">Toronto data community</div>
+        <div class="curr-note">always up for a coffee chat — reach out on LinkedIn anytime</div>
       </div>
-      <div class="curr-item">
-        <div class="curr-lbl">Setup</div>
-        <div class="curr-val">Lenovo Legion 5</div>
-        <div class="curr-note">RTX 5060 · 32GB · Core Ultra 9</div>
-      </div>
-      <div class="curr-item">
-        <div class="curr-lbl">Location</div>
-        <div class="curr-val">Toronto, ON</div>
-        <div class="curr-note">originally Chennai, India</div>
-      </div>
+    </div>
+  </div>
+
+  <!-- NETWORKING BOX -->
+  <div class="network-box reveal">
+    <div class="nb-title">Want to connect?</div>
+    <div class="nb-text">
+      I'm always happy to talk data, analytics, career advice, or just trade book recommendations. Whether you're a recruiter, a fellow analyst, or someone who just found this page and wants to chat — feel free to reach out on <a href="https://linkedin.com/in/vignesh2912" target="_blank">LinkedIn</a> or shoot me an <a href="mailto:vignesh222022@gmail.com">email</a>. Toronto is a big city but the data community is surprisingly small and friendly.
     </div>
   </div>
 
@@ -270,7 +408,7 @@
 </footer>
 
 <script>
-  const obs = new IntersectionObserver(es => es.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); } }), {threshold:0.08});
+  const obs = new IntersectionObserver(es => es.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); } }), {threshold:0.06});
   document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 </script>
 </body>

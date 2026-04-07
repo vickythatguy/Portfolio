@@ -19,94 +19,204 @@
       --body:   'Lora', Georgia, serif;
     }
     html { scroll-behavior: smooth; }
-    body { background: var(--bg); color: var(--text); font-family: var(--body); font-size: 16px; line-height: 1.7; }
+    body { background: var(--bg); color: var(--text); font-family: var(--body); font-size: 17px; line-height: 1.75; }
 
-    /* NAV */
-    nav { display: flex; align-items: center; justify-content: space-between; padding: 1.75rem 4rem; border-bottom: 1px solid var(--line); position: sticky; top: 0; background: var(--bg); z-index: 100; }
-    .nav-name { font-family: var(--serif); font-size: 1.1rem; font-weight: 600; color: var(--text); text-decoration: none; }
-    .nav-links { display: flex; gap: 2rem; list-style: none; }
-    .nav-links a { font-family: var(--mono); font-size: 0.65rem; color: var(--muted); text-decoration: none; letter-spacing: 0.07em; transition: color 0.2s; }
+    /* ── NAV — bigger ── */
+    nav {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.75rem 5rem;
+      border-bottom: 1px solid var(--line);
+      position: sticky; top: 0; background: var(--bg); z-index: 100;
+    }
+    .nav-name {
+      font-family: var(--serif); font-size: 1.35rem; font-weight: 600;
+      color: var(--text); text-decoration: none; letter-spacing: 0.01em;
+    }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links a {
+      font-family: var(--mono); font-size: 0.78rem; color: var(--muted);
+      text-decoration: none; letter-spacing: 0.07em; transition: color 0.2s;
+    }
     .nav-links a:hover, .nav-links a.active { color: var(--text); }
 
-    /* CONTAINER */
-    .wrap { max-width: 840px; margin: 0 auto; padding: 0 4rem; }
+    /* ── WRAP ── */
+    .wrap { max-width: 880px; margin: 0 auto; padding: 0 5rem; }
 
-    /* HERO */
-    .hero { padding: 5rem 0 0; }
-    .hero-grid { display: grid; grid-template-columns: 1fr 280px; gap: 4rem; align-items: start; }
-    .hero-text h1 { font-family: var(--serif); font-size: clamp(3rem, 6vw, 5.5rem); font-weight: 300; line-height: 1.0; letter-spacing: -0.01em; margin-bottom: 1.25rem; }
+    /* ── HERO ── */
+    .hero { padding: 5.5rem 0 0; }
+    .hero-grid { display: grid; grid-template-columns: 1fr 300px; gap: 4rem; align-items: start; }
+    .hero-text h1 {
+      font-family: var(--serif); font-size: clamp(3.2rem, 6vw, 6rem);
+      font-weight: 300; line-height: 1.0; letter-spacing: -0.01em; margin-bottom: 1.25rem;
+    }
     .hero-text h1 em { font-style: italic; }
-    .hero-role { font-family: var(--mono); font-size: 0.65rem; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 2rem; }
-    .hero-intro { font-size: 1rem; color: var(--text); line-height: 1.85; margin-bottom: 2rem; }
+    .hero-role {
+      font-family: var(--mono); font-size: 0.72rem; color: var(--muted);
+      letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 2rem;
+    }
+    .hero-intro { font-size: 1.05rem; color: var(--text); line-height: 1.85; margin-bottom: 1.5rem; }
     .hero-intro p + p { margin-top: 0.85rem; }
-    .social-row { display: flex; gap: 1.5rem; flex-wrap: wrap; margin-top: 1.75rem; }
-    .social-row a { font-family: var(--mono); font-size: 0.63rem; color: var(--muted); text-decoration: none; letter-spacing: 0.08em; border-bottom: 1px solid var(--line); padding-bottom: 0.1rem; transition: color 0.2s, border-color 0.2s; }
+    .social-row { display: flex; gap: 1.75rem; flex-wrap: wrap; margin-top: 1.75rem; }
+    .social-row a {
+      font-family: var(--mono); font-size: 0.7rem; color: var(--muted);
+      text-decoration: none; letter-spacing: 0.08em;
+      border-bottom: 1px solid var(--line); padding-bottom: 0.1rem;
+      transition: color 0.2s, border-color 0.2s;
+    }
     .social-row a:hover { color: var(--accent); border-color: var(--accent); }
-    .hero-photo { width: 100%; aspect-ratio: 3/4; object-fit: cover; object-position: top center; display: block; filter: grayscale(5%); }
+    .hero-photo {
+      width: 100%; aspect-ratio: 3/4; object-fit: cover;
+      object-position: top center; display: block; filter: grayscale(5%);
+    }
 
-    /* HR */
     hr { border: none; border-top: 1px solid var(--line); margin: 4rem 0; }
 
-    /* SECTION */
+    /* ── SECTION TITLES ── */
     .sec { padding-bottom: 5rem; }
-    .sec-title { font-family: var(--serif); font-size: 1.7rem; font-weight: 600; color: var(--text); margin-bottom: 2rem; letter-spacing: -0.01em; }
+    .sec-title {
+      font-family: var(--serif); font-size: 2rem; font-weight: 600;
+      color: var(--text); margin-bottom: 2.25rem; letter-spacing: -0.01em;
+    }
     .sec-title em { font-style: italic; font-weight: 300; }
 
-    /* THINGS LIST */
+    /* ── THINGS THAT HAPPENED — hover expand ── */
     .things { list-style: none; }
-    .thing { display: grid; grid-template-columns: 150px 1fr; gap: 2rem; padding: 1.25rem 0; border-bottom: 1px solid var(--line); align-items: baseline; }
+    .thing {
+      display: grid; grid-template-columns: 160px 1fr;
+      gap: 2rem; padding: 0; border-bottom: 1px solid var(--line);
+      cursor: default;
+      transition: background 0.25s;
+    }
     .thing:first-child { border-top: 1px solid var(--line); }
-    .thing-dt { font-family: var(--mono); font-size: 0.6rem; color: var(--muted); letter-spacing: 0.07em; text-transform: uppercase; padding-top: 0.1rem; }
-    .thing-bd strong { font-family: var(--body); font-size: 0.95rem; font-weight: 500; display: block; margin-bottom: 0.2rem; }
-    .thing-bd span { font-size: 0.875rem; color: var(--muted); line-height: 1.65; }
+    .thing:hover { background: rgba(139,94,60,0.04); }
 
-    /* PROJECTS */
+    .thing-inner {
+      padding: 1.35rem 0.75rem 1.35rem 0;
+      overflow: hidden;
+    }
+    .thing-meta { padding: 1.35rem 0; }
+
+    .thing-dt {
+      font-family: var(--mono); font-size: 0.65rem; color: var(--muted);
+      letter-spacing: 0.07em; text-transform: uppercase;
+    }
+    .thing-tag {
+      display: inline-block; margin-top: 0.4rem;
+      font-family: var(--mono); font-size: 0.55rem;
+      color: var(--accent); letter-spacing: 0.06em;
+      border: 1px solid rgba(139,94,60,0.3);
+      padding: 0.15rem 0.45rem; border-radius: 2px;
+    }
+
+    .thing-title {
+      font-family: var(--body); font-size: 1rem; font-weight: 500;
+      color: var(--text); margin-bottom: 0.3rem;
+    }
+    .thing-summary {
+      font-size: 0.9rem; color: var(--muted); line-height: 1.65;
+    }
+    /* expanded detail — hidden by default, visible on hover */
+    .thing-detail {
+      max-height: 0; overflow: hidden;
+      transition: max-height 0.4s ease, opacity 0.3s ease;
+      opacity: 0;
+    }
+    .thing:hover .thing-detail {
+      max-height: 400px; opacity: 1;
+    }
+    .thing-detail-inner {
+      margin-top: 0.85rem; padding-top: 0.85rem;
+      border-top: 1px solid var(--line);
+    }
+    .thing-detail-inner p {
+      font-size: 0.875rem; color: var(--text); line-height: 1.75; margin-bottom: 0.5rem;
+    }
+    .thing-tools {
+      display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.65rem;
+    }
+    .tool-chip {
+      font-family: var(--mono); font-size: 0.58rem; color: var(--accent);
+      background: rgba(139,94,60,0.07); border: 1px solid rgba(139,94,60,0.2);
+      padding: 0.2rem 0.6rem; border-radius: 2px; letter-spacing: 0.04em;
+    }
+    .impact-row {
+      display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 0.85rem;
+    }
+    .impact-stat {
+      display: flex; flex-direction: column;
+      border-left: 2px solid var(--accent); padding-left: 0.75rem;
+    }
+    .impact-num {
+      font-family: var(--serif); font-size: 1.6rem; font-weight: 700;
+      color: var(--text); line-height: 1;
+    }
+    .impact-label {
+      font-family: var(--mono); font-size: 0.57rem; color: var(--muted);
+      letter-spacing: 0.06em; margin-top: 0.2rem;
+    }
+
+    /* ── PROJECTS ── */
     .projs { list-style: none; }
-    .proj { display: grid; grid-template-columns: 1fr auto; gap: 2rem; padding: 1.25rem 0; border-bottom: 1px solid var(--line); align-items: start; }
+    .proj {
+      display: grid; grid-template-columns: 1fr auto;
+      gap: 2rem; padding: 1.35rem 0; border-bottom: 1px solid var(--line); align-items: start;
+      transition: background 0.2s;
+    }
     .proj:first-child { border-top: 1px solid var(--line); }
-    .proj-name { font-size: 0.95rem; font-weight: 500; margin-bottom: 0.25rem; }
-    .proj-desc { font-size: 0.855rem; color: var(--muted); line-height: 1.65; margin-bottom: 0.5rem; }
+    .proj:hover { background: rgba(139,94,60,0.03); }
+    .proj-name { font-size: 1rem; font-weight: 500; margin-bottom: 0.3rem; }
+    .proj-desc { font-size: 0.9rem; color: var(--muted); line-height: 1.7; margin-bottom: 0.5rem; }
     .proj-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; }
-    .ptag { font-family: var(--mono); font-size: 0.55rem; color: var(--accent); letter-spacing: 0.05em; }
-    .proj-a { font-family: var(--mono); font-size: 0.6rem; color: var(--muted); text-decoration: none; letter-spacing: 0.05em; white-space: nowrap; border-bottom: 1px solid var(--line); padding-bottom: 0.1rem; transition: color 0.2s, border-color 0.2s; }
+    .ptag { font-family: var(--mono); font-size: 0.57rem; color: var(--accent); letter-spacing: 0.05em; }
+    .proj-a {
+      font-family: var(--mono); font-size: 0.63rem; color: var(--muted);
+      text-decoration: none; letter-spacing: 0.05em; white-space: nowrap;
+      border-bottom: 1px solid var(--line); padding-bottom: 0.1rem;
+      transition: color 0.2s, border-color 0.2s;
+    }
     .proj-a:hover { color: var(--accent); border-color: var(--accent); }
 
-    /* SKILLS */
-    .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem 4rem; }
-    .sk-group h4 { font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.75rem; border-bottom: 1px solid var(--line); padding-bottom: 0.5rem; }
-    .sk-group ul { list-style: none; display: flex; flex-direction: column; gap: 0.4rem; }
-    .sk-group li { font-size: 0.875rem; color: var(--text); }
+    /* ── SKILLS ── */
+    .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem 5rem; }
+    .sk-group h4 {
+      font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--muted); margin-bottom: 0.85rem;
+      border-bottom: 1px solid var(--line); padding-bottom: 0.5rem;
+    }
+    .sk-group ul { list-style: none; display: flex; flex-direction: column; gap: 0.45rem; }
+    .sk-group li { font-size: 0.9rem; color: var(--text); }
 
-    /* CONTACT */
+    /* ── CONTACT ── */
     .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
-    .contact-blurb { font-family: var(--serif); font-size: 1.5rem; font-style: italic; font-weight: 300; line-height: 1.45; color: var(--text); }
-    .clinks { list-style: none; display: flex; flex-direction: column; gap: 0; }
-    .clink-item { padding: 0.85rem 0; border-bottom: 1px solid var(--line); }
+    .contact-blurb {
+      font-family: var(--serif); font-size: 1.6rem; font-style: italic;
+      font-weight: 300; line-height: 1.45; color: var(--text);
+    }
+    .clinks { list-style: none; }
+    .clink-item { padding: 0.9rem 0; border-bottom: 1px solid var(--line); }
     .clink-item:first-child { border-top: 1px solid var(--line); }
-    .cl-lbl { font-family: var(--mono); font-size: 0.57rem; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.2rem; }
-    .cl-val { font-size: 0.9rem; color: var(--text); text-decoration: none; transition: color 0.2s; }
+    .cl-lbl { font-family: var(--mono); font-size: 0.6rem; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.2rem; }
+    .cl-val { font-size: 0.95rem; color: var(--text); text-decoration: none; transition: color 0.2s; }
     .cl-val:hover { color: var(--accent); }
 
-    /* FOOTER */
-    footer { padding: 2rem 4rem; border-top: 1px solid var(--line); display: flex; justify-content: space-between; align-items: center; }
-    .ft { font-family: var(--mono); font-size: 0.58rem; color: var(--muted); letter-spacing: 0.05em; }
-    .ft a { color: var(--muted); text-decoration: none; transition: color 0.2s; }
+    /* ── FOOTER ── */
+    footer { padding: 2rem 5rem; border-top: 1px solid var(--line); display: flex; justify-content: space-between; align-items: center; }
+    .ft { font-family: var(--mono); font-size: 0.6rem; color: var(--muted); letter-spacing: 0.05em; }
+    .ft a { color: var(--muted); text-decoration: none; }
     .ft a:hover { color: var(--accent); }
 
-    /* ANIMATIONS */
     @keyframes up { from { opacity:0; transform:translateY(12px); } to { opacity:1; transform:translateY(0); } }
     .hero-grid { animation: up 0.65s ease 0.1s both; }
     .reveal { opacity:0; transform:translateY(10px); transition: opacity 0.5s ease, transform 0.5s ease; }
     .reveal.visible { opacity:1; transform:translateY(0); }
 
-    /* RESPONSIVE */
-    @media(max-width:760px){
+    @media(max-width:800px){
       nav { padding:1.25rem 1.5rem; }
       .wrap { padding:0 1.5rem; }
       .hero-grid { grid-template-columns:1fr; gap:2rem; }
       .hero-photo { max-width:200px; order:-1; }
-      .hero-text h1 { font-size:3rem; }
-      .thing { grid-template-columns:1fr; gap:0.2rem; }
+      .thing { grid-template-columns:1fr; }
+      .thing-meta { padding: 1.25rem 0 0; }
       .contact-grid { grid-template-columns:1fr; gap:2rem; }
       .skills-grid { grid-template-columns:1fr; }
       footer { flex-direction:column; gap:0.5rem; padding:1.5rem; text-align:center; }
@@ -133,8 +243,8 @@
         <div class="hero-role">Data Analyst &nbsp;·&nbsp; Business Intelligence &nbsp;·&nbsp; Toronto, ON</div>
         <h1>Vignesh<br><em>Subramaniam</em></h1>
         <div class="hero-intro">
-          <p>I'm a data analyst with a background in engineering and three years solving real problems in insurance, retail, and financial services. I use SQL, Power BI, and Python — but the interesting part is always the question, not the tool.</p>
-          <p>Master of Business Analytics &amp; AI, Ontario Tech University — GPA 4.15, Dean's List. Currently in Toronto and open to new opportunities.</p>
+          <p>I'm a data analyst with a background in engineering and three years of building analytics systems that people actually rely on — in insurance, retail, and financial services. The domain changes. The curiosity doesn't.</p>
+          <p>Master of Business Analytics &amp; AI, Ontario Tech University — GPA 4.15, Dean's List. Currently in Toronto and open to new roles.</p>
         </div>
         <div class="social-row">
           <a href="https://linkedin.com/in/vignesh2912" target="_blank">LinkedIn</a>
@@ -150,45 +260,91 @@
 
   <hr />
 
-  <!-- THINGS THAT HAPPENED -->
+  <!-- THINGS THAT HAPPENED — hover to expand -->
   <section class="sec reveal">
     <h2 class="sec-title">Things that <em>happened</em></h2>
+    <p style="font-size:0.75rem;font-family:var(--mono);color:var(--muted);letter-spacing:0.07em;margin-bottom:1.5rem;">hover over each one to see more</p>
     <ul class="things">
+
       <li class="thing">
-        <div class="thing-dt">2025 · Dean's List</div>
-        <div class="thing-bd">
-          <strong>Graduated with a 4.15 GPA — Master of Business Analytics &amp; AI</strong>
-          <span>Ontario Tech University. While working part-time and job searching simultaneously. The plan kept changing. The GPA didn't.</span>
+        <div class="thing-meta">
+          <div class="thing-dt">2025 · Dean's List</div>
+          <span class="thing-tag">EDUCATION</span>
+        </div>
+        <div class="thing-inner">
+          <div class="thing-title">Graduated with a 4.15 GPA — Master of Business Analytics &amp; AI</div>
+          <div class="thing-summary">Ontario Tech University. While working part-time and job searching at the same time.</div>
+          <div class="thing-detail">
+            <div class="thing-detail-inner">
+              <p>Completed a rigorous Master's covering Big Data Systems Design, AI Programming, Data Visualization &amp; Storytelling, and Digital Transformation. The plan kept changing. The GPA didn't. Named to the Dean's List with a 4.15 / 4.3 GPA.</p>
+              <p>Served as VP of the Google Data Visualization Club — led 25+ analytics competitions across Canada, earning 2nd and 3rd place in national innovation challenges. The answer is almost never the obvious chart.</p>
+            </div>
+          </div>
         </div>
       </li>
+
       <li class="thing">
-        <div class="thing-dt">2024–25 · VP</div>
-        <div class="thing-bd">
-          <strong>Led 25+ data analytics competitions across Canada</strong>
-          <span>VP of Google Data Visualization Club at Ontario Tech. 2nd and 3rd place in national innovation challenges. The answer is almost never the obvious chart.</span>
+        <div class="thing-meta">
+          <div class="thing-dt">2024 · Certified</div>
+          <span class="thing-tag">CERTIFICATION</span>
+        </div>
+        <div class="thing-inner">
+          <div class="thing-title">Microsoft Power BI Data Analyst Associate (PL-300)</div>
+          <div class="thing-summary">Plus ML and Deep Learning specializations from Stanford and DeepLearning.AI.</div>
+          <div class="thing-detail">
+            <div class="thing-detail-inner">
+              <p>PL-300 validated advanced Power BI skills — DAX, dimensional modeling, row-level security, and field parameters for dynamic reports. Followed up with Stanford's Machine Learning Specialization and DeepLearning.AI's Deep Learning series to strengthen the data science foundation.</p>
+              <div class="thing-tools">
+                <span class="tool-chip">Power BI</span><span class="tool-chip">DAX</span><span class="tool-chip">Machine Learning</span><span class="tool-chip">Deep Learning</span>
+              </div>
+            </div>
+          </div>
         </div>
       </li>
+
       <li class="thing">
-        <div class="thing-dt">2024 · Microsoft</div>
-        <div class="thing-bd">
-          <strong>Power BI Data Analyst Associate — PL-300 Certified</strong>
-          <span>Plus Machine Learning Specialization (Stanford) and Deep Learning Specialization (DeepLearning.AI).</span>
+        <div class="thing-meta">
+          <div class="thing-dt">2022–2024 · Mumbai</div>
+          <span class="thing-tag">INDUSTRY</span>
+        </div>
+        <div class="thing-inner">
+          <div class="thing-title">Built BI infrastructure for insurance clients across India at Nvest Solutions</div>
+          <div class="thing-summary">Owned the full reporting layer — from raw SQL pipelines to the dashboards agents relied on daily. When the numbers were wrong, real people made bad financial decisions.</div>
+          <div class="thing-detail">
+            <div class="thing-detail-inner">
+              <p>Designed and maintained Power BI dashboards and SQL pipelines that the corporate navigator team used for every agent proposal. Built the calculation logic for a life insurance product configurator — precision was non-negotiable because incorrect numbers directly affected proposal win rates and client trust.</p>
+              <p>Automated data validation and reconciliation processes that previously required hours of manual checking. Built market-facing dashboards tracking premiums, claims ratios, and persistency across multiple insurers — used by clients to benchmark against competitors.</p>
+              <div class="impact-row">
+                <div class="impact-stat"><span class="impact-num">40%</span><span class="impact-label">reduction in manual reporting effort</span></div>
+                <div class="impact-stat"><span class="impact-num">25%</span><span class="impact-label">fewer audit queries raised</span></div>
+                <div class="impact-stat"><span class="impact-num">30%</span><span class="impact-label">improvement in data accuracy</span></div>
+                <div class="impact-stat"><span class="impact-num">20%</span><span class="impact-label">faster product rollout cycles</span></div>
+              </div>
+              <div class="thing-tools" style="margin-top:1rem;">
+                <span class="tool-chip">SQL Server</span><span class="tool-chip">Power BI</span><span class="tool-chip">DAX</span><span class="tool-chip">Excel</span><span class="tool-chip">Python</span><span class="tool-chip">BRD / FRD</span>
+              </div>
+            </div>
+          </div>
         </div>
       </li>
+
       <li class="thing">
-        <div class="thing-dt">2021–24 · Mumbai</div>
-        <div class="thing-bd">
-          <strong>Built BI infrastructure for insurance clients across India at Nvest Solutions</strong>
-          <span>Reduced manual reporting by 40%, audit queries by 25%. When numbers are wrong, real people make bad financial decisions — that kind of responsibility makes you meticulous.</span>
+        <div class="thing-meta">
+          <div class="thing-dt">2021 · New Delhi</div>
+          <span class="thing-tag">INTERNSHIP</span>
+        </div>
+        <div class="thing-inner">
+          <div class="thing-title">Operations Analyst Intern — Maruti Suzuki India Limited</div>
+          <div class="thing-summary">Supply chain analytics at one of India's largest automakers.</div>
+          <div class="thing-detail">
+            <div class="thing-detail-inner">
+              <p>Analyzed supply chain and production operations data to identify bottlenecks and support process optimization across manufacturing workflows.</p>
+              <p>Learned early that the messiest, most valuable data is always the operational data — the kind that gets generated before anyone decides it should be tracked.</p>
+            </div>
+          </div>
         </div>
       </li>
-      <li class="thing">
-        <div class="thing-dt">2021 · New Delhi</div>
-        <div class="thing-bd">
-          <strong>Operations Analyst Intern — Maruti Suzuki India Limited</strong>
-          <span>Supply chain analytics at one of India's largest automakers. Supply chain data is chaotic in fascinating ways.</span>
-        </div>
-      </li>
+
     </ul>
   </section>
 
@@ -201,7 +357,7 @@
       <li class="proj">
         <div>
           <div class="proj-name">Fraud Detection Analytics Pipeline</div>
-          <div class="proj-desc">Full AML-style pipeline in SQL Server — customer spending baselines, z-score anomaly detection, velocity rules, composite risk scoring. The hard question: what does normal spending actually look like?</div>
+          <div class="proj-desc">Full AML-style pipeline in SQL Server — customer spending baselines, z-score anomaly detection, velocity rules, composite risk scoring. The hard question: what does normal behavior actually look like?</div>
           <div class="proj-tags"><span class="ptag">SQL SERVER</span><span class="ptag">Z-SCORE</span><span class="ptag">RISK SCORING</span><span class="ptag">AML</span></div>
         </div>
         <a href="https://github.com/vickythatguy/fraud-detection-analytics" target="_blank" class="proj-a">GitHub ↗</a>
@@ -209,7 +365,7 @@
       <li class="proj">
         <div>
           <div class="proj-name">Grocery Customer Analytics — Instacart Dataset</div>
-          <div class="proj-desc">3M+ orders analyzed across reorder patterns, basket composition, and purchase cycles. What does a shopping cart tell you about someone's week?</div>
+          <div class="proj-desc">3M+ orders analyzed across reorder patterns, basket composition, and purchase cycles. Built end-to-end in SQL Server. What does a shopping cart tell you about someone's week?</div>
           <div class="proj-tags"><span class="ptag">SQL SERVER</span><span class="ptag">BASKET ANALYSIS</span><span class="ptag">CUSTOMER BEHAVIOR</span></div>
         </div>
         <a href="https://github.com/vickythatguy" target="_blank" class="proj-a">GitHub ↗</a>
@@ -217,7 +373,7 @@
       <li class="proj">
         <div>
           <div class="proj-name">Insurance Market Analytics Dashboard</div>
-          <div class="proj-desc">Power BI tracking premiums, claims ratios, and persistency across insurers. Snowflake schema, field parameters, RLS. Translating actuarial data so salespeople can actually use it.</div>
+          <div class="proj-desc">Power BI tracking premiums, claims ratios, and persistency across insurers. Snowflake schema, field parameters, RLS. The challenge was making actuarial data readable to a salesperson in the field.</div>
           <div class="proj-tags"><span class="ptag">POWER BI</span><span class="ptag">DAX</span><span class="ptag">RLS</span><span class="ptag">SNOWFLAKE SCHEMA</span></div>
         </div>
         <a href="https://github.com/vickythatguy/insurancedashboard" target="_blank" class="proj-a">GitHub ↗</a>
@@ -225,7 +381,7 @@
       <li class="proj">
         <div>
           <div class="proj-name">Vendor Performance Analytics</div>
-          <div class="proj-desc">KPI system tracking SLA compliance, defect rates, and delivery failure patterns — built to surface which vendors' promises don't match their record.</div>
+          <div class="proj-desc">KPI system tracking SLA compliance, defect rates, and delivery failures — built to surface which vendors' promises don't match their record.</div>
           <div class="proj-tags"><span class="ptag">SQL</span><span class="ptag">PYTHON</span><span class="ptag">POWER BI</span></div>
         </div>
         <a href="https://github.com/vickythatguy/vendor-performance-analytics" target="_blank" class="proj-a">GitHub ↗</a>
@@ -233,7 +389,7 @@
       <li class="proj">
         <div>
           <div class="proj-name">SMS Spam Classifier</div>
-          <div class="proj-desc">TF-IDF + soft-voting ensemble (Naive Bayes + Logistic Regression + SVM). Spam evolves — so the model learns intent signals, not just vocabulary.</div>
+          <div class="proj-desc">TF-IDF + soft-voting ensemble (Naive Bayes, Logistic Regression, SVM). Spam evolves — so the model learns intent signals, not just vocabulary patterns.</div>
           <div class="proj-tags"><span class="ptag">PYTHON</span><span class="ptag">NLP</span><span class="ptag">TF-IDF</span><span class="ptag">SCIKIT-LEARN</span></div>
         </div>
         <a href="https://github.com/vickythatguy/SmsSpamClassifier" target="_blank" class="proj-a">GitHub ↗</a>
@@ -241,13 +397,15 @@
       <li class="proj">
         <div>
           <div class="proj-name">Banking Risk Analytics Dashboard</div>
-          <div class="proj-desc">Credit exposure, LTV ratios, and default patterns by region and product. Surfaces concentration risk that aggregate reports tend to hide.</div>
+          <div class="proj-desc">Credit exposure, LTV ratios, and default patterns segmented by region and product type — designed to surface concentration risk that aggregated reports hide.</div>
           <div class="proj-tags"><span class="ptag">POWER BI</span><span class="ptag">DAX</span><span class="ptag">CREDIT RISK</span></div>
         </div>
         <a href="https://github.com/vickythatguy/bankingAnalysis" target="_blank" class="proj-a">GitHub ↗</a>
       </li>
     </ul>
-    <p style="margin-top:1.5rem;font-family:var(--mono);font-size:0.62rem;"><a href="https://github.com/vickythatguy" target="_blank" style="color:var(--muted);text-decoration:none;border-bottom:1px solid var(--line);padding-bottom:0.1rem;">All projects on GitHub ↗</a></p>
+    <p style="margin-top:1.5rem;font-family:var(--mono);font-size:0.65rem;">
+      <a href="https://github.com/vickythatguy" target="_blank" style="color:var(--muted);text-decoration:none;border-bottom:1px solid var(--line);padding-bottom:0.1rem;">All projects on GitHub ↗</a>
+    </p>
   </section>
 
   <hr />
@@ -278,7 +436,7 @@
         <h4>Analytics &amp; ML</h4>
         <ul>
           <li>Customer segmentation — KMeans, AutoEncoder</li>
-          <li>NLP · sentiment analysis · TF-IDF</li>
+          <li>NLP · TF-IDF · sentiment analysis</li>
           <li>A/B testing · forecasting</li>
           <li>Risk scoring · anomaly detection</li>
         </ul>
@@ -310,7 +468,6 @@
       </ul>
     </div>
   </section>
-
 </div>
 
 <footer>
@@ -319,7 +476,7 @@
 </footer>
 
 <script>
-  const obs = new IntersectionObserver(es => es.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); } }), {threshold:0.08});
+  const obs = new IntersectionObserver(es => es.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); } }), {threshold:0.06});
   document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 </script>
 </body>
