@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CV — Vignesh Subramaniam</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=IBM+Plex+Mono:wght@300;400;500&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg:     #F8F5EF;
+      --text:   #1A1714;
+      --muted:  #7A7168;
+      --accent: #8B5E3C;
+      --line:   #D8D2C8;
+      --serif:  'Cormorant Garamond', Georgia, serif;
+      --mono:   'IBM Plex Mono', monospace;
+      --body:   'Lora', Georgia, serif;
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--text); font-family: var(--body); font-size: 16px; line-height: 1.7; }
+
+    nav { display: flex; align-items: center; justify-content: space-between; padding: 1.75rem 4rem; border-bottom: 1px solid var(--line); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+    .nav-name { font-family: var(--serif); font-size: 1.1rem; font-weight: 600; color: var(--text); text-decoration: none; }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { font-family: var(--mono); font-size: 0.65rem; color: var(--muted); text-decoration: none; letter-spacing: 0.07em; transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--text); }
+
+    .wrap { max-width: 840px; margin: 0 auto; padding: 0 4rem; }
+
+    .page-head { padding: 4.5rem 0 0; margin-bottom: 3rem; }
+    .page-head h1 { font-family: var(--serif); font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 300; letter-spacing: -0.01em; color: var(--text); }
+    .page-head .sub { font-family: var(--mono); font-size: 0.62rem; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; margin-top: 0.75rem; }
+
+    hr { border: none; border-top: 1px solid var(--line); margin: 3rem 0; }
+
+    .cv-section { padding-bottom: 3.5rem; }
+    .cv-head { font-family: var(--serif); font-size: 1.4rem; font-weight: 600; color: var(--text); margin-bottom: 1.75rem; letter-spacing: -0.01em; }
+
+    /* ENTRY */
+    .entry { display: grid; grid-template-columns: 150px 1fr; gap: 2rem; padding: 1.25rem 0; border-bottom: 1px solid var(--line); }
+    .entry:first-of-type { border-top: 1px solid var(--line); }
+    .entry-meta { display: flex; flex-direction: column; gap: 0.25rem; }
+    .entry-date { font-family: var(--mono); font-size: 0.58rem; color: var(--muted); letter-spacing: 0.07em; }
+    .entry-org { font-family: var(--mono); font-size: 0.58rem; color: var(--accent); letter-spacing: 0.05em; }
+    .entry-body {}
+    .entry-role { font-family: var(--body); font-size: 1rem; font-weight: 500; color: var(--text); margin-bottom: 0.4rem; }
+    .entry-desc { font-size: 0.875rem; color: var(--muted); line-height: 1.7; }
+    .entry-bullets { list-style: none; margin-top: 0.75rem; display: flex; flex-direction: column; gap: 0.5rem; }
+    .entry-bullets li { font-size: 0.875rem; color: var(--text); padding-left: 1rem; position: relative; line-height: 1.65; }
+    .entry-bullets li::before { content: '—'; position: absolute; left: 0; color: var(--muted); font-family: var(--mono); font-size: 0.7rem; top: 0.25rem; }
+
+    /* CERT ROW */
+    .cert-entry { display: grid; grid-template-columns: 150px 1fr; gap: 2rem; padding: 1rem 0; border-bottom: 1px solid var(--line); align-items: baseline; }
+    .cert-entry:first-of-type { border-top: 1px solid var(--line); }
+    .cert-date { font-family: var(--mono); font-size: 0.58rem; color: var(--muted); letter-spacing: 0.07em; }
+    .cert-name { font-size: 0.9rem; color: var(--text); font-weight: 500; }
+    .cert-org { font-family: var(--mono); font-size: 0.58rem; color: var(--accent); letter-spacing: 0.05em; margin-top: 0.15rem; }
+
+    .download-link { display: inline-flex; align-items: center; gap: 0.4rem; font-family: var(--mono); font-size: 0.62rem; color: var(--muted); text-decoration: none; letter-spacing: 0.07em; border-bottom: 1px solid var(--line); padding-bottom: 0.1rem; transition: color 0.2s, border-color 0.2s; margin-top: 2rem; }
+    .download-link:hover { color: var(--accent); border-color: var(--accent); }
+
+    footer { padding: 2rem 4rem; border-top: 1px solid var(--line); display: flex; justify-content: space-between; align-items: center; margin-top: 4rem; }
+    .ft { font-family: var(--mono); font-size: 0.58rem; color: var(--muted); letter-spacing: 0.05em; }
+    .ft a { color: var(--muted); text-decoration: none; }
+    .ft a:hover { color: var(--accent); }
+
+    @media(max-width:760px){
+      nav { padding:1.25rem 1.5rem; }
+      .wrap { padding:0 1.5rem; }
+      .entry, .cert-entry { grid-template-columns:1fr; gap:0.25rem; }
+      footer { flex-direction:column; gap:0.5rem; padding:1.5rem; text-align:center; }
+    }
+    @media(max-width:500px){ .nav-links { display:none; } }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-name">Vignesh Subramaniam</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="cv.html" class="active">CV</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="thedatabehind.html">The Data Behind It</a></li>
+  </ul>
+</nav>
+
+<div class="wrap">
+  <div class="page-head">
+    <h1>Curriculum Vitae</h1>
+    <p class="sub">Data Analyst · Business Intelligence · Toronto, Ontario</p>
+    <a href="assets/Vignesh_Subramaniam_Resume.pdf" target="_blank" class="download-link">Download PDF ↗</a>
+  </div>
+
+  <hr />
+
+  <!-- EXPERIENCE -->
+  <div class="cv-section">
+    <h2 class="cv-head">Industry Experience</h2>
+
+    <div class="entry">
+      <div class="entry-meta">
+        <span class="entry-date">2024 – Present</span>
+        <span class="entry-org">Shoppers Drug Mart</span>
+      </div>
+      <div class="entry-body">
+        <div class="entry-role">Store Supervisor + Voluntary Analytics</div>
+        <ul class="entry-bullets">
+          <li>Manages daily operations for a high-volume retail location — inventory, staffing, and customer experience, gaining ground-level understanding of how retail data actually gets generated before it hits a dashboard.</li>
+          <li>Voluntarily analyzes store-level data to surface inventory and fulfillment patterns, building domain knowledge directly applicable to Loblaw-adjacent analytical roles.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-meta">
+        <span class="entry-date">Sep 2021 – Sep 2024</span>
+        <span class="entry-org">Nvest Solutions</span>
+      </div>
+      <div class="entry-body">
+        <div class="entry-role">Business Insights Analyst</div>
+        <ul class="entry-bullets">
+          <li><strong>Reduced manual reporting effort by 40%</strong> by designing and maintaining Power BI dashboards and SQL pipelines that enabled self-serve analytics for insurance clients.</li>
+          <li><strong>Cut audit queries by 25%</strong> through automated SQL data validation and reconciliation processes, increasing financial calculation accuracy by 30%.</li>
+          <li>Owned calculation logic for a life insurance product configurator — built to be precise because incorrect numbers meant agents lost proposals and clients made bad financial decisions.</li>
+          <li>Built market-facing dashboards tracking premiums, claims ratios, and persistency across multiple insurers; used by clients to benchmark against the market.</li>
+          <li>Authored BRDs and FRDs collaborating with cross-functional teams, reducing product rollout timelines by 20%.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-meta">
+        <span class="entry-date">2021 · Internship</span>
+        <span class="entry-org">Maruti Suzuki India</span>
+      </div>
+      <div class="entry-body">
+        <div class="entry-role">Operations Analyst Intern</div>
+        <ul class="entry-bullets">
+          <li>Analyzed supply chain and operations data to support process optimization at one of India's largest automotive manufacturers.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <hr />
+
+  <!-- EDUCATION -->
+  <div class="cv-section">
+    <h2 class="cv-head">Education</h2>
+
+    <div class="entry">
+      <div class="entry-meta">
+        <span class="entry-date">2024–2025</span>
+        <span class="entry-org">Ontario Tech University</span>
+      </div>
+      <div class="entry-body">
+        <div class="entry-role">Master of Business Analytics and Artificial Intelligence</div>
+        <ul class="entry-bullets">
+          <li>GPA: 4.15 / 4.3 — Dean's List</li>
+          <li>Coursework: Big Data Systems Design, AI Programming, Data Visualization &amp; Storytelling, Business Analytics, Digital Transformation, AI Security Privacy &amp; Trust</li>
+          <li>VP of Google Data Visualization Club — led 25+ competitions across Canada, earning 2nd and 3rd place in innovation challenges</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-meta">
+        <span class="entry-date">2017–2021</span>
+        <span class="entry-org">Dronacharya College</span>
+      </div>
+      <div class="entry-body">
+        <div class="entry-role">Bachelor of Engineering — Mechanical Engineering</div>
+        <ul class="entry-bullets">
+          <li>Merit scholarship — first two years</li>
+          <li>Coursework: Data Structures &amp; Algorithms, Database Management Systems, Statistics &amp; Probability, Object-Oriented Programming</li>
+          <li>Conducted ML &amp; AI workshops for partner universities; participated in inter-university hackathons</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <hr />
+
+  <!-- CERTIFICATIONS -->
+  <div class="cv-section">
+    <h2 class="cv-head">Certifications</h2>
+
+    <div class="cert-entry">
+      <span class="cert-date">Sept 2024</span>
+      <div>
+        <div class="cert-name">Microsoft Power BI Data Analyst Associate (PL-300)</div>
+        <div class="cert-org">Microsoft</div>
+      </div>
+    </div>
+    <div class="cert-entry">
+      <span class="cert-date">Mar 2025</span>
+      <div>
+        <div class="cert-name">Machine Learning Specialization</div>
+        <div class="cert-org">Stanford Online · Coursera</div>
+      </div>
+    </div>
+    <div class="cert-entry">
+      <span class="cert-date">Apr 2025</span>
+      <div>
+        <div class="cert-name">Deep Learning Specialization</div>
+        <div class="cert-org">DeepLearning.AI · Coursera</div>
+      </div>
+    </div>
+    <div class="cert-entry">
+      <span class="cert-date">Aug 2024</span>
+      <div>
+        <div class="cert-name">Statistics for Data Science and Business Analysis</div>
+        <div class="cert-org">Udemy</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <span class="ft">© 2025 Vignesh Subramaniam</span>
+  <span class="ft"><a href="index.html">← Home</a></span>
+</footer>
+
+</body>
+</html>

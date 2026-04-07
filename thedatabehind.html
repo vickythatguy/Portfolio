@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Data Behind It — Vignesh Subramaniam</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=IBM+Plex+Mono:wght@300;400;500&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg:     #F8F5EF;
+      --text:   #1A1714;
+      --muted:  #7A7168;
+      --accent: #8B5E3C;
+      --line:   #D8D2C8;
+      --serif:  'Cormorant Garamond', Georgia, serif;
+      --mono:   'IBM Plex Mono', monospace;
+      --body:   'Lora', Georgia, serif;
+    }
+    body { background: var(--bg); color: var(--text); font-family: var(--body); font-size: 16px; line-height: 1.7; }
+
+    nav { display: flex; align-items: center; justify-content: space-between; padding: 1.75rem 4rem; border-bottom: 1px solid var(--line); position: sticky; top: 0; background: var(--bg); z-index: 100; }
+    .nav-name { font-family: var(--serif); font-size: 1.1rem; font-weight: 600; color: var(--text); text-decoration: none; }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { font-family: var(--mono); font-size: 0.65rem; color: var(--muted); text-decoration: none; letter-spacing: 0.07em; transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--text); }
+
+    .wrap { max-width: 840px; margin: 0 auto; padding: 0 4rem; }
+
+    .page-head { padding: 4.5rem 0 0; margin-bottom: 3rem; text-align: center; }
+    .page-head h1 { font-family: var(--serif); font-size: clamp(2.5rem, 5vw, 4.5rem); font-weight: 300; letter-spacing: -0.01em; color: var(--text); margin-bottom: 0.75rem; }
+    .page-head h1 em { font-style: italic; }
+    .page-head .sub { font-family: var(--mono); font-size: 0.62rem; color: var(--muted); letter-spacing: 0.08em; }
+
+    hr { border: none; border-top: 1px solid var(--line); margin: 3rem 0; }
+
+    /* TWO-COL LAYOUT — like Jacqueline's bookshelf / data page */
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; padding: 3rem 0; }
+    .col-head { font-family: var(--serif); font-size: 1.25rem; font-weight: 600; color: var(--text); margin-bottom: 2rem; border-bottom: 1px solid var(--line); padding-bottom: 0.75rem; }
+
+    /* BOOKSHELF */
+    .shelf-section { margin-bottom: 2rem; }
+    .shelf-cat { font-family: var(--mono); font-size: 0.58rem; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.75rem; }
+    .shelf-list { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+    .shelf-list li { font-size: 0.875rem; color: var(--text); padding-left: 0.85rem; position: relative; }
+    .shelf-list li::before { content: '↳'; position: absolute; left: 0; color: var(--muted); font-family: var(--mono); font-size: 0.65rem; top: 0.2rem; }
+    .shelf-list a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.2s; }
+    .shelf-list a:hover { border-color: var(--accent); }
+
+    /* DATASETS */
+    .dataset { margin-bottom: 1.5rem; border-bottom: 1px solid var(--line); padding-bottom: 1.5rem; }
+    .dataset:last-child { border-bottom: none; padding-bottom: 0; }
+    .ds-name { font-size: 0.9rem; font-weight: 500; color: var(--text); margin-bottom: 0.2rem; }
+    .ds-why { font-size: 0.845rem; color: var(--muted); line-height: 1.65; margin-bottom: 0.25rem; }
+    .ds-tag { font-family: var(--mono); font-size: 0.55rem; color: var(--accent); letter-spacing: 0.07em; }
+
+    /* QUESTIONS */
+    .questions { list-style: none; display: flex; flex-direction: column; gap: 0; }
+    .q { padding: 1.25rem 0; border-bottom: 1px solid var(--line); }
+    .q:first-child { border-top: 1px solid var(--line); }
+    .q-text { font-family: var(--serif); font-size: 1.2rem; font-style: italic; font-weight: 300; color: var(--text); line-height: 1.4; margin-bottom: 0.3rem; }
+    .q-domain { font-family: var(--mono); font-size: 0.57rem; color: var(--muted); letter-spacing: 0.08em; }
+
+    /* CURRENTLY */
+    .currently { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1px; background: var(--line); }
+    .curr-item { background: var(--bg); padding: 1.25rem; }
+    .curr-lbl { font-family: var(--mono); font-size: 0.57rem; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.4rem; }
+    .curr-val { font-size: 0.875rem; font-weight: 500; color: var(--text); margin-bottom: 0.15rem; }
+    .curr-note { font-size: 0.78rem; color: var(--muted); }
+
+    footer { padding: 2rem 4rem; border-top: 1px solid var(--line); display: flex; justify-content: space-between; align-items: center; margin-top: 3rem; }
+    .ft { font-family: var(--mono); font-size: 0.58rem; color: var(--muted); letter-spacing: 0.05em; }
+    .ft a { color: var(--muted); text-decoration: none; }
+    .ft a:hover { color: var(--accent); }
+
+    .reveal { opacity:0; transform:translateY(10px); transition: opacity 0.5s ease, transform 0.5s ease; }
+    .reveal.visible { opacity:1; transform:translateY(0); }
+
+    @media(max-width:760px){
+      nav { padding:1.25rem 1.5rem; }
+      .wrap { padding:0 1.5rem; }
+      .two-col { grid-template-columns:1fr; gap:3rem; }
+      .currently { grid-template-columns:1fr 1fr; }
+      footer { flex-direction:column; gap:0.5rem; padding:1.5rem; text-align:center; }
+    }
+    @media(max-width:500px){
+      .nav-links { display:none; }
+      .currently { grid-template-columns:1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-name">Vignesh Subramaniam</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="cv.html">CV</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="thedatabehind.html" class="active">The Data Behind It</a></li>
+  </ul>
+</nav>
+
+<div class="wrap">
+
+  <div class="page-head">
+    <h1>The Data <em>Behind It</em></h1>
+    <p class="sub">Things I read, datasets worth digging into, and questions I can't stop thinking about.</p>
+  </div>
+
+  <hr />
+
+  <!-- BOOKSHELF + DATASETS — two column like Jacqueline -->
+  <div class="two-col reveal">
+
+    <div>
+      <h2 class="col-head">Bookshelf</h2>
+
+      <div class="shelf-section">
+        <div class="shelf-cat">Books</div>
+        <ul class="shelf-list">
+          <li>Storytelling with Data — Cole Nussbaumer Knaflic</li>
+          <li>The Signal and the Noise — Nate Silver</li>
+          <li>How Charts Lie — Alberto Cairo</li>
+          <li>Naked Statistics — Charles Wheelan</li>
+          <li>Thinking, Fast and Slow — Daniel Kahneman</li>
+        </ul>
+      </div>
+
+      <div class="shelf-section">
+        <div class="shelf-cat">Courses I actually finished</div>
+        <ul class="shelf-list">
+          <li><a href="https://www.coursera.org/specializations/machine-learning-introduction" target="_blank">Machine Learning Specialization — Stanford / Andrew Ng</a></li>
+          <li><a href="https://www.coursera.org/specializations/deep-learning" target="_blank">Deep Learning Specialization — DeepLearning.AI</a></li>
+          <li>Microsoft PL-300 — Power BI Data Analyst</li>
+          <li>Statistics for Data Science — Udemy</li>
+        </ul>
+      </div>
+
+      <div class="shelf-section">
+        <div class="shelf-cat">Channels worth your time</div>
+        <ul class="shelf-list">
+          <li>StatQuest with Josh Starmer — when stats needs to actually make sense</li>
+          <li>Alex the Analyst — SQL deep dives</li>
+          <li>Towards Data Science — Medium publication</li>
+        </ul>
+      </div>
+
+      <div class="shelf-section">
+        <div class="shelf-cat">Tools I keep coming back to</div>
+        <ul class="shelf-list">
+          <li>SQL Server Management Studio — still my default thinking space</li>
+          <li>Power BI with field parameters — underrated for dynamic dashboards</li>
+          <li>Python + Pandas — for when SQL isn't enough</li>
+          <li>DBeaver — when I need multi-database work</li>
+        </ul>
+      </div>
+    </div>
+
+    <div>
+      <h2 class="col-head">Data to Play With</h2>
+
+      <div class="dataset">
+        <div class="ds-name">Instacart Market Basket Dataset</div>
+        <div class="ds-why">3M+ grocery orders. Customer behavior doesn't lie — reorder patterns tell you more about a person than a survey ever would.</div>
+        <div class="ds-tag">RETAIL · CUSTOMER BEHAVIOR</div>
+      </div>
+
+      <div class="dataset">
+        <div class="ds-name">Statistics Canada — Open Data</div>
+        <div class="ds-why">CPI, labour force surveys, consumer spending by category. Real Canada, real decisions. Underused by most analysts.</div>
+        <div class="ds-tag">ECONOMICS · PUBLIC DATA</div>
+      </div>
+
+      <div class="dataset">
+        <div class="ds-name">Kaggle Credit Card Fraud Dataset</div>
+        <div class="ds-why">Class imbalance at its worst. The interesting problem is always defining what "normal" looks like before you can spot what isn't.</div>
+        <div class="ds-tag">FINANCIAL CRIME · ML</div>
+      </div>
+
+      <div class="dataset">
+        <div class="ds-name">UCI Machine Learning Repository</div>
+        <div class="ds-why">Old school but deep. When I want a clean problem to think through from scratch.</div>
+        <div class="ds-tag">ML · EXPLORATION</div>
+      </div>
+
+      <div class="dataset">
+        <div class="ds-name">Canadian Open Banking Data</div>
+        <div class="ds-why">Watching how Canada approaches open banking compared to the UK. The regulatory structure shapes what analytics is even possible.</div>
+        <div class="ds-tag">FINANCIAL SERVICES · POLICY</div>
+      </div>
+    </div>
+
+  </div>
+
+  <hr />
+
+  <!-- QUESTIONS -->
+  <div class="reveal">
+    <div style="font-family:var(--serif);font-size:1.25rem;font-weight:600;margin-bottom:2rem;">Questions I keep <em>circling back to</em></div>
+    <ul class="questions">
+      <li class="q">
+        <div class="q-text">Why does fraud look like normal behavior — until it doesn't?</div>
+        <div class="q-domain">AML · anomaly detection · behavioral baselines</div>
+      </li>
+      <li class="q">
+        <div class="q-text">What does a grocery cart actually reveal about someone's week?</div>
+        <div class="q-domain">retail analytics · customer behavior · basket analysis</div>
+      </li>
+      <li class="q">
+        <div class="q-text">At what point does a dashboard stop being useful and start being noise?</div>
+        <div class="q-domain">BI design · information density · stakeholder communication</div>
+      </li>
+      <li class="q">
+        <div class="q-text">Why do insurance agents make worse proposals when they have more data?</div>
+        <div class="q-domain">decision-making · information overload · dashboard UX</div>
+      </li>
+      <li class="q">
+        <div class="q-text">Is there a detectable pattern in how FPS players make bad calls under pressure?</div>
+        <div class="q-domain">behavioral data · competitive gaming · decision latency</div>
+      </li>
+    </ul>
+  </div>
+
+  <hr />
+
+  <!-- CURRENTLY -->
+  <div class="reveal" style="margin-bottom:4rem;">
+    <div style="font-family:var(--serif);font-size:1.25rem;font-weight:600;margin-bottom:2rem;">Right <em>now</em></div>
+    <div class="currently">
+      <div class="curr-item">
+        <div class="curr-lbl">Reading</div>
+        <div class="curr-val">Storytelling with Data</div>
+        <div class="curr-note">Cole Nussbaumer Knaflic</div>
+      </div>
+      <div class="curr-item">
+        <div class="curr-lbl">Studying</div>
+        <div class="curr-val">dbt + data modeling</div>
+        <div class="curr-note">building on my SQL foundation</div>
+      </div>
+      <div class="curr-item">
+        <div class="curr-lbl">Playing</div>
+        <div class="curr-val">Competitive FPS</div>
+        <div class="curr-note">thinking about the data behind win rates</div>
+      </div>
+      <div class="curr-item">
+        <div class="curr-lbl">Job searching</div>
+        <div class="curr-val">BI · Insights · Analytics</div>
+        <div class="curr-note">Toronto, ON · open to hybrid / remote</div>
+      </div>
+      <div class="curr-item">
+        <div class="curr-lbl">Setup</div>
+        <div class="curr-val">Lenovo Legion 5</div>
+        <div class="curr-note">RTX 5060 · 32GB · Core Ultra 9</div>
+      </div>
+      <div class="curr-item">
+        <div class="curr-lbl">Location</div>
+        <div class="curr-val">Toronto, ON</div>
+        <div class="curr-note">originally Chennai, India</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <span class="ft">© 2025 Vignesh Subramaniam · Toronto, ON</span>
+  <span class="ft"><a href="index.html">← Home</a></span>
+</footer>
+
+<script>
+  const obs = new IntersectionObserver(es => es.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); } }), {threshold:0.08});
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
